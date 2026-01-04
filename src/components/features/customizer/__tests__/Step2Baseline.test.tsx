@@ -151,7 +151,6 @@ describe("Step2Baseline", () => {
       />
     );
 
-    // Verify the selected option is rendered
     expect(screen.getByText("step2.options.1-3")).toBeInTheDocument();
   });
 
@@ -183,7 +182,6 @@ describe("Step2Baseline", () => {
       />
     );
 
-    // Verify the selected option is rendered
     expect(
       screen.getByText("step2.sidebar.utilization.options.stretched")
     ).toBeInTheDocument();

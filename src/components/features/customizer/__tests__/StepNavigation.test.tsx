@@ -90,7 +90,6 @@ describe("StepNavigation", () => {
       <StepNavigation onBack={onBack} onNext={vi.fn()} showBack={false} />
     );
 
-    // Back button should not exist
     expect(screen.queryByText("Back")).not.toBeInTheDocument();
   });
 

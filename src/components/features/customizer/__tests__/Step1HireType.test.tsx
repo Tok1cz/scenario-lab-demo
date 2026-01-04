@@ -64,13 +64,10 @@ describe("Step1HireType", () => {
       <Step1HireType value="first" onChange={vi.fn()} />
     );
 
-    // Verify first option is rendered
     expect(screen.getByText("step1.options.first")).toBeInTheDocument();
 
-    // Re-render with 'replacement' selected
     rerender(<Step1HireType value="replacement" onChange={vi.fn()} />);
 
-    // Verify both options exist and replacement was changed to
     expect(screen.getByText("step1.options.first")).toBeInTheDocument();
     expect(screen.getByText("step1.options.replacement")).toBeInTheDocument();
   });
@@ -88,16 +85,13 @@ describe("Step1HireType", () => {
     }
     expect(onChange).toHaveBeenCalledWith("capacity");
 
-    // Simulate update to selected value
     rerender(<Step1HireType value="capacity" onChange={onChange} />);
 
-    // Verify capacity option is rendered and was updated
     expect(screen.getByText("step1.options.capacity")).toBeInTheDocument();
   });
 
   it("renders sidebar with help items", () => {
     render(<Step1HireType value="" onChange={vi.fn()} />);
-    // Check that the sidebar title is rendered
     expect(screen.getByText("step1.sidebar.title")).toBeInTheDocument();
   });
 

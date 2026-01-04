@@ -228,7 +228,6 @@ describe("Step4Downside", () => {
       .closest("." + styles.optionCard);
     expect(card).toHaveClass(styles.selected);
 
-    // Change to different values
     rerender(
       <Step4Downside
         utilizationDownside="moderate"
@@ -262,14 +261,12 @@ describe("Step4Downside", () => {
       />
     );
 
-    // Test slight
     let option = screen.getByText("step4.options.slight.title").closest("div");
     if (option) {
       await user.click(option);
     }
     expect(onChangeUtilizationDownside).toHaveBeenCalledWith("slight");
 
-    // Test moderate
     rerender(
       <Step4Downside
         utilizationDownside="slight"
@@ -284,7 +281,6 @@ describe("Step4Downside", () => {
     }
     expect(onChangeUtilizationDownside).toHaveBeenCalledWith("moderate");
 
-    // Test severe
     rerender(
       <Step4Downside
         utilizationDownside="moderate"

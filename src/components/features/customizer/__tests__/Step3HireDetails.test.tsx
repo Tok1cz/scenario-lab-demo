@@ -157,7 +157,6 @@ describe("Step3HireDetails", () => {
       />
     );
 
-    // Verify the selected option is rendered
     expect(screen.getByText("step3.options.4-6")).toBeInTheDocument();
   });
 
@@ -173,7 +172,6 @@ describe("Step3HireDetails", () => {
       />
     );
 
-    // Verify the selected option is rendered in sidebar
     expect(
       screen.getByText("step3.sidebar.startTiming.options.immediate")
     ).toBeInTheDocument();
@@ -191,7 +189,6 @@ describe("Step3HireDetails", () => {
       />
     );
 
-    // Verify the selected option is rendered in sidebar
     expect(
       screen.getByText("step3.sidebar.billability.options.medium")
     ).toBeInTheDocument();

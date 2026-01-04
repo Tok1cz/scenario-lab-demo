@@ -47,7 +47,6 @@ export default function CustomizerPage() {
     if (currentStep < 4) {
       setCurrentStep((prev) => prev + 1);
     } else {
-      // Navigate to loading/results page
       console.log("Submit form:", formData);
     }
   };
