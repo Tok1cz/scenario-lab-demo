@@ -1,58 +1,127 @@
 {
   "progress": "Fortschritt",
-  "step": "Schritt {{current}} von {{total}}",
-  "complete": "{{percent}}% vollständig",
+  "guidedIntake": "Geführte Aufnahme - Schritt {{current}} von {{total}}",
 
-  "steps": {
-    "hireType": {
-      "title": "Lassen Sie uns eine Einstellungsentscheidung testen",
-      "subtitle": "Wir prognostizieren keinen Erfolg. Wir testen, was passiert, wenn es schief geht.",
-      "question": "Was beschreibt die Einstellung am besten?",
-      "help": "Wählen Sie die nächstgelegene Option. Dies hilft bei der Risikointerpretation, nicht bei der Präzisionsberechnung.",
-      "types": {
-        "first": "Erste Einstellung zur Wachstumsunterstützung",
-        "replacement": "Ersatz / Nachbesetzung",
-        "capacity": "Kapazitätseinstellung für erwartete Arbeit",
-        "preemptive": "Vorbeugende Einstellung (bevor Umsatz gesichert ist)"
-      }
+  "step1": {
+    "title": "Lassen Sie uns eine Einstellungsentscheidung testen",
+    "subtitle": "Wir prognostizieren keinen Erfolg. Wir testen, was passiert, wenn es schief geht.",
+    "question": "Was beschreibt die Einstellung am besten?",
+    "help": "Wählen Sie die nächstgelegene Option. Dies hilft bei der Risikointerpretation, nicht bei der Präzisionsberechnung.",
+    "options": {
+      "first": "Erste Einstellung zur Wachstumsunterstützung",
+      "replacement": "Ersatz / Nachbesetzung",
+      "capacity": "Kapazitätseinstellung für erwartete Arbeit",
+      "preemptive": "Vorbeugende Einstellung (bevor Umsatz gesichert ist)"
     },
-
-    "financial": {
-      "title": "Finanzielle Eingaben",
-      "cashBuffer": {
-        "label": "Liquiditätspuffer",
-        "help": "Verfügbare Liquidität zur Absorbierung von Risiken"
+    "sidebar": {
+      "title": "So funktioniert es",
+      "items": {
+        "item1": "Sie geben grobe Eingaben",
+        "item2": "Wir testen realistische Negativszenarien",
+        "item3": "Wir zeigen Breakpoints und Zeit-zu-Risiko-Ereignisse"
       },
-      "hireCost": {
-        "label": "Einstellungskosten (monatlich)",
-        "help": "Vollständig belastete monatliche Kosten der neuen Einstellung"
-      },
-      "startTiming": {
-        "label": "Starttermin",
-        "help": "Wann würde diese Person anfangen?"
-      }
-    },
-
-    "downside": {
-      "title": "Negative Annahmen",
-      "utilization": {
-        "label": "Auslastungsrückgang",
-        "help": "Wie niedrig könnte die abrechenbare Auslastung realistisch sinken?"
-      },
-      "paymentDelay": {
-        "label": "Zahlungsverzögerungen",
-        "help": "Wie spät kommen Zahlungen manchmal an?"
-      }
-    },
-
-    "review": {
-      "title": "Bereit für den Belastungstest",
-      "subtitle": "Wir testen, wie sich diese Einstellung verhält, wenn sich Risiken häufen. Das Ergebnis zeigt Risikostatus, Zeit bis zu Ereignissen und was zuerst bricht.",
-      "provided": "Was Sie angegeben haben",
-      "happens": "Was als nächstes passiert",
-      "test": "Stressszenarien durchlaufen Risikobereiche",
-      "stop": "Harte Grenze: Liquidität unter 1 Monat Gehalt",
-      "warning": "Frühwarnung: Entlassungszone wird ausgelöst"
+      "note": "Keine Exporte. Keine Buchhaltungseinrichtung. Dies ist ein Belastungstest, keine Prognose."
     }
+  },
+
+  "step2": {
+    "title": "Aktuelle Sicherheitsbasislinie",
+    "subtitle": "Dies bestimmt, wie nahe Sie vor der Einstellung an harten Einschränkungen sind.",
+    "question": "Ungefähr wie viele Monate Gehalt haben Sie heute in bar?",
+    "options": {
+      "under1": "Unter 1 Monat",
+      "1-3": "1-3 Monate",
+      "3-6": "3-6 Monate",
+      "6+": "6+ Monate"
+    },
+    "sidebar": {
+      "title": "Team-Kontext",
+      "teamSize": {
+        "label": "Teamgröße",
+        "placeholder": "z.B. 18"
+      },
+      "utilization": {
+        "label": "Im Moment sind Sie hauptsächlich",
+        "options": {
+          "full": "Voll ausgelastet",
+          "stretched": "Leicht überlastet",
+          "bench": "Mit etwas Bench"
+        }
+      }
+    }
+  },
+
+  "step3": {
+    "title": "Die Einstellung",
+    "subtitle": "Definieren Sie die fixen Kosten und das Timing. Ungefähre Werte sind in Ordnung.",
+    "question": "Was sind die monatlichen Gesamtkosten dieser Einstellung?",
+    "options": {
+      "4-6": "€4k - €6k",
+      "6-8": "€6k - €8k",
+      "8+": "€8k+"
+    },
+    "sidebar": {
+      "title": "Timing und Anlauf",
+      "startTiming": {
+        "label": "Wann würden sie anfangen?",
+        "options": {
+          "immediate": "Sofort",
+          "1month": "In ~1 Monat",
+          "2-3months": "In ~2-3 Monaten"
+        }
+      },
+      "billability": {
+        "label": "Wie zuversichtlich sind Sie, dass sie schnell abrechenbar sein werden?",
+        "options": {
+          "high": "Hohes Vertrauen",
+          "medium": "Etwas Unsicherheit",
+          "low": "Meist spekulativ"
+        }
+      }
+    }
+  },
+
+  "step4": {
+    "title": "Negative Annahmen",
+    "subtitle": "Wählen Sie realistische Nachteile. Wir testen Bereiche, keine Punktprognosen.",
+    "question": "Wenn die Dinge schlechter laufen als geplant, wie niedrig könnte die Auslastung sinken?",
+    "options": {
+      "slight": {
+        "title": "Leichter Rückgang (um 80%)",
+        "subtitle": "Etwas Schwäche, aber kein Nachfrageschock"
+      },
+      "moderate": {
+        "title": "Moderater Rückgang (um 70%)",
+        "subtitle": "Typischer Nachteil für Agenturen"
+      },
+      "severe": {
+        "title": "Starker Rückgang (um 60%)",
+        "subtitle": "Kundenverlust oder größere Pause"
+      }
+    },
+    "sidebar": {
+      "title": "Zahlungsrisiko",
+      "label": "Wie zuverlässig sind Kundenzahlungen?",
+      "options": {
+        "low": {
+          "title": "Meist pünktlich",
+          "subtitle": "Gelegentliche Verzögerungen, selten anhäufend"
+        },
+        "medium": {
+          "title": "Manchmal spät (30 Tage)",
+          "subtitle": "Spürbare Cashflow-Kompression"
+        },
+        "high": {
+          "title": "Oft spät / konzentriertes Risiko",
+          "subtitle": "Verzögerungen oder Abhängigkeiten häufen sich wahrscheinlich"
+        }
+      }
+    }
+  },
+
+  "navigation": {
+    "back": "Zurück",
+    "next": "Weiter",
+    "submit": "Einstellungsbelastungstest durchführen"
   }
 }

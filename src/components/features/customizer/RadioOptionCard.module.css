@@ -1,0 +1,23 @@
+.optionCard {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid #e5e7eb;
+  background: white;
+}
+
+.optionCard:hover {
+  border-color: #9ca3af;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.optionCard.selected {
+  border-color: #1f2937;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.optionCard.selected:hover {
+  border-color: #1f2937;
+  transform: translateY(-2px);
+}

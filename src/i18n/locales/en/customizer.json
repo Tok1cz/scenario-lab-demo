@@ -1,58 +1,127 @@
 {
   "progress": "Progress",
-  "step": "Step {{current}} of {{total}}",
-  "complete": "{{percent}}% complete",
+  "guidedIntake": "Guided Intake - Step {{current}} of {{total}}",
 
-  "steps": {
-    "hireType": {
-      "title": "Let's stress-test a hiring decision",
-      "subtitle": "We won't predict success. We'll test what happens if things go wrong.",
-      "question": "What best describes the hire you're considering?",
-      "help": "Pick the closest option. This helps interpret risk, not compute precision.",
-      "types": {
-        "first": "First hire to support growth",
-        "replacement": "Replacement / backfill",
-        "capacity": "Capacity hire for expected work",
-        "preemptive": "Preemptive hire (before revenue is locked)"
-      }
+  "step1": {
+    "title": "Let's stress-test a hiring decision",
+    "subtitle": "We won't predict success. We'll test what happens if things go wrong.",
+    "question": "What best describes the hire you're considering?",
+    "help": "Pick the closest option. This helps interpret risk, not compute precision.",
+    "options": {
+      "first": "First hire to support growth",
+      "replacement": "Replacement / backfill",
+      "capacity": "Capacity hire for expected work",
+      "preemptive": "Preemptive hire (before revenue is locked)"
     },
-
-    "financial": {
-      "title": "Financial inputs",
-      "cashBuffer": {
-        "label": "Cash buffer",
-        "help": "Cash available to absorb downside risk"
+    "sidebar": {
+      "title": "How this works",
+      "items": {
+        "item1": "You give rough inputs",
+        "item2": "We test realistic downside scenarios",
+        "item3": "We show breakpoints and time-to-risk events"
       },
-      "hireCost": {
-        "label": "Hire cost (monthly)",
-        "help": "Fully loaded monthly cost of the new hire"
-      },
-      "startTiming": {
-        "label": "Start timing",
-        "help": "When would this person start?"
-      }
-    },
-
-    "downside": {
-      "title": "Downside assumptions",
-      "utilization": {
-        "label": "Utilization downside",
-        "help": "How low could billable utilization realistically drop?"
-      },
-      "paymentDelay": {
-        "label": "Payment delays",
-        "help": "How late do payments sometimes arrive?"
-      }
-    },
-
-    "review": {
-      "title": "Ready to run the stress test",
-      "subtitle": "We will test how this hire behaves if downsides stack together. The result will show risk status, time-to-events, and what breaks first.",
-      "provided": "What you provided",
-      "happens": "What happens next",
-      "test": "Stress scenarios sweep over downside ranges",
-      "stop": "Hard stop: cash below 1 month payroll",
-      "warning": "Early warning: layoff zone triggers"
+      "note": "No exports. No accounting setup. This is a stress test, not a forecast."
     }
+  },
+
+  "step2": {
+    "title": "Current safety baseline",
+    "subtitle": "This sets how close you are to hard constraints before the hire.",
+    "question": "Roughly how many months of payroll do you have in cash today?",
+    "options": {
+      "under1": "Under 1 month",
+      "1-3": "1-3 months",
+      "3-6": "3-6 months",
+      "6+": "6+ months"
+    },
+    "sidebar": {
+      "title": "Team context",
+      "teamSize": {
+        "label": "Team size",
+        "placeholder": "e.g., 18"
+      },
+      "utilization": {
+        "label": "Right now you are mostly",
+        "options": {
+          "full": "Fully utilized",
+          "stretched": "Slightly stretched",
+          "bench": "Carrying some bench"
+        }
+      }
+    }
+  },
+
+  "step3": {
+    "title": "The hire",
+    "subtitle": "Define the fixed cost and timing. Rough values are fine.",
+    "question": "What is the all-in monthly cost of this hire?",
+    "options": {
+      "4-6": "€4k - €6k",
+      "6-8": "€6k - €8k",
+      "8+": "€8k+"
+    },
+    "sidebar": {
+      "title": "Timing and ramp",
+      "startTiming": {
+        "label": "When would they start?",
+        "options": {
+          "immediate": "Immediately",
+          "1month": "In ~1 month",
+          "2-3months": "In ~2-3 months"
+        }
+      },
+      "billability": {
+        "label": "How confident are you they will be billable quickly?",
+        "options": {
+          "high": "High confidence",
+          "medium": "Some uncertainty",
+          "low": "Mostly speculative"
+        }
+      }
+    }
+  },
+
+  "step4": {
+    "title": "Downside assumptions",
+    "subtitle": "Choose realistic downside. We test ranges, not point forecasts.",
+    "question": "If things go worse than planned, how low could utilization drop?",
+    "options": {
+      "slight": {
+        "title": "Slight dip (around 80%)",
+        "subtitle": "Some softness, but not a demand shock"
+      },
+      "moderate": {
+        "title": "Moderate dip (around 70%)",
+        "subtitle": "Typical downside for agencies"
+      },
+      "severe": {
+        "title": "Severe dip (around 60%)",
+        "subtitle": "Client loss or major pause"
+      }
+    },
+    "sidebar": {
+      "title": "Payment risk",
+      "label": "How reliable are client payments?",
+      "options": {
+        "low": {
+          "title": "Mostly on time",
+          "subtitle": "Occasional delays, rarely stacking"
+        },
+        "medium": {
+          "title": "Sometimes late (30 days)",
+          "subtitle": "Noticeable cashflow compression"
+        },
+        "high": {
+          "title": "Often late / concentrated risk",
+          "subtitle": "Delays or dependency likely to stack"
+        }
+      }
+    }
+  },
+
+  "navigation": {
+    "back": "Back",
+    "next": "Next",
+    "submit": "Run hiring stress test"
   }
 }
