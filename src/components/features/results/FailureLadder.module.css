@@ -1,0 +1,28 @@
+/* Failure Ladder */
+.failureLadder {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.ladderStage {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-sm);
+  background: #e8e8e8;
+  transition: all 0.3s ease;
+}
+
+.ladderStage.healthy {
+  background: #d9f7be;
+  border: 2px solid #95de64;
+}
+
+.ladderStage.current {
+  background: #fff1b8;
+  border: 2px solid #ffc53d;
+  font-weight: bold;
+}
+
+.ladderStage.breach {
+  background: #ffccc7;
+}

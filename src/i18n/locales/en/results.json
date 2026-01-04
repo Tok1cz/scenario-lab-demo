@@ -1,7 +1,11 @@
 {
+  "header": "Hiring Stress Test - Demo Screen (Stack: Risk Zones + Timeline + Failure Ladder)",
   "title": "Hiring Safety Status",
   "riskZones": "Risk Zones",
   "currentPosition": "Current position",
+  "safe": "SAFE",
+  "risky": "RISKY",
+  "dangerous": "DANGEROUS",
 
   "status": {
     "safe": {
@@ -51,5 +55,6 @@
     "runAgain": "Run stress test"
   },
 
-  "disclaimer": "This is an approximate model designed for decision robustness. It does not provide financial advice or precise forecasts."
+  "disclaimer": "This is an approximate model designed for decision robustness. It does not provide financial advice or precise forecasts.",
+  "demoNote": "Demo flow: 3x verdict (Risk Zones) - 30s horizon check (Timeline) - 2-5m why (Failure Ladder)."
 }

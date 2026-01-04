@@ -1,7 +1,11 @@
 {
+  "header": "Belastungstest Einstellung - Demo-Ansicht (Stack: Risikozonen + Zeitlinie + Versagensleiter)",
   "title": "Einstellungssicherheitsstatus",
   "riskZones": "Risikozonen",
   "currentPosition": "Aktuelle Position",
+  "safe": "SICHER",
+  "risky": "RISKANT",
+  "dangerous": "GEFÄHRLICH",
 
   "status": {
     "safe": {
@@ -51,5 +55,6 @@
     "runAgain": "Belastungstest durchführen"
   },
 
-  "disclaimer": "Dies ist ein ungefähres Modell für Entscheidungsrobustheit. Es bietet keine Finanzberatung oder präzise Prognosen."
+  "disclaimer": "Dies ist ein ungefähres Modell für Entscheidungsrobustheit. Es bietet keine Finanzberatung oder präzise Prognosen.",
+  "demoNote": "Demo-Ablauf: 3x Urteil (Risikozonen) - 30s Horizont-Check (Zeitlinie) - 2-5m Warum (Versagensleiter)."
 }

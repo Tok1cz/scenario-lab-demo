@@ -1,0 +1,67 @@
+/* Risk Zones Bar */
+.riskZonesBar {
+  position: relative;
+  width: 100%;
+  padding-top: var(--spacing-xxxl);
+  margin-bottom: var(--spacing-xs);
+}
+
+.currentPosition {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  gap: var(--spacing-xxs);
+}
+
+.positionMarker {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-round);
+  background: #1890ff;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.zoneBar {
+  display: flex;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.zoneSafe {
+  flex: 1;
+  background: #b7eb8f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #135200;
+  font-size: var(--font-size-sm);
+}
+
+.zoneRisky {
+  flex: 1;
+  background: #ffe58f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #ad6800;
+  font-size: var(--font-size-sm);
+}
+
+.zoneDangerous {
+  flex: 1;
+  background: #ffa39e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #820014;
+  font-size: var(--font-size-sm);
+}
