@@ -1,0 +1,55 @@
+{
+  "title": "Hiring Safety Status",
+  "riskZones": "Risk Zones",
+  "currentPosition": "Current position",
+
+  "status": {
+    "safe": {
+      "title": "Safe Hire",
+      "description": "Tested downside scenarios stay outside layoff and payroll breach thresholds."
+    },
+    "risky": {
+      "title": "Risky Hire",
+      "description": "A moderate downside pushes you into the layoff zone within {{months}} months."
+    },
+    "dangerous": {
+      "title": "Dangerous Hire",
+      "description": "Risk of cash breach under realistic downside within {{months}} months."
+    }
+  },
+
+  "timeline": {
+    "title": "Time to Risk Events (Stress Outcome)",
+    "earliestEvent": "Earliest event: {{event}} in Month {{month}}",
+    "layoffZone": "Time to layoff zone",
+    "payrollBreach": "Time to payroll breach",
+    "noEvents": "No risk events within {{months}} months (under tested downside)",
+    "notReached": "not reached within horizon"
+  },
+
+  "failureLadder": {
+    "title": "Failure Ladder (What breaks first, and why)",
+    "stages": {
+      "healthy": "Healthy utilization",
+      "drops": "Utilization drops",
+      "bench": "Bench builds (> 25% for 2 months)",
+      "layoff": "Forced layoff zone (runway below 3 months)",
+      "breach": "Payroll breach (cash < 1 month payroll)"
+    },
+    "whatBreaksFirst": "What breaks first",
+    "breakpoints": "Breakpoints",
+    "suggestedAction": "Suggested action"
+  },
+
+  "zones": {
+    "dangerous": "Dangerous = cash below 1 month payroll.",
+    "risky": "Risky = enters layoff zone (runway below 3 months OR bench > 25% for 2 months)."
+  },
+
+  "actions": {
+    "editAnswers": "Edit answers",
+    "runAgain": "Run stress test"
+  },
+
+  "disclaimer": "This is an approximate model designed for decision robustness. It does not provide financial advice or precise forecasts."
+}

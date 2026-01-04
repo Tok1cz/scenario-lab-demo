@@ -1,0 +1,20 @@
+{
+  "buttons": {
+    "next": "Next",
+    "back": "Back",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "share": "Share",
+    "retry": "Retry"
+  },
+  "language": {
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "status": {
+    "safe": "Safe Hire",
+    "risky": "Risky Hire",
+    "dangerous": "Dangerous Hire"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "buttons": {
+    "next": "Weiter",
+    "back": "Zurück",
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "edit": "Bearbeiten",
+    "share": "Teilen",
+    "retry": "Erneut versuchen"
+  },
+  "language": {
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "status": {
+    "safe": "Sichere Einstellung",
+    "risky": "Riskante Einstellung",
+    "dangerous": "Gefährliche Einstellung"
+  }
+}

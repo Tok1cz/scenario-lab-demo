@@ -1,0 +1,58 @@
+{
+  "progress": "Fortschritt",
+  "step": "Schritt {{current}} von {{total}}",
+  "complete": "{{percent}}% vollständig",
+
+  "steps": {
+    "hireType": {
+      "title": "Lassen Sie uns eine Einstellungsentscheidung testen",
+      "subtitle": "Wir prognostizieren keinen Erfolg. Wir testen, was passiert, wenn es schief geht.",
+      "question": "Was beschreibt die Einstellung am besten?",
+      "help": "Wählen Sie die nächstgelegene Option. Dies hilft bei der Risikointerpretation, nicht bei der Präzisionsberechnung.",
+      "types": {
+        "first": "Erste Einstellung zur Wachstumsunterstützung",
+        "replacement": "Ersatz / Nachbesetzung",
+        "capacity": "Kapazitätseinstellung für erwartete Arbeit",
+        "preemptive": "Vorbeugende Einstellung (bevor Umsatz gesichert ist)"
+      }
+    },
+
+    "financial": {
+      "title": "Finanzielle Eingaben",
+      "cashBuffer": {
+        "label": "Liquiditätspuffer",
+        "help": "Verfügbare Liquidität zur Absorbierung von Risiken"
+      },
+      "hireCost": {
+        "label": "Einstellungskosten (monatlich)",
+        "help": "Vollständig belastete monatliche Kosten der neuen Einstellung"
+      },
+      "startTiming": {
+        "label": "Starttermin",
+        "help": "Wann würde diese Person anfangen?"
+      }
+    },
+
+    "downside": {
+      "title": "Negative Annahmen",
+      "utilization": {
+        "label": "Auslastungsrückgang",
+        "help": "Wie niedrig könnte die abrechenbare Auslastung realistisch sinken?"
+      },
+      "paymentDelay": {
+        "label": "Zahlungsverzögerungen",
+        "help": "Wie spät kommen Zahlungen manchmal an?"
+      }
+    },
+
+    "review": {
+      "title": "Bereit für den Belastungstest",
+      "subtitle": "Wir testen, wie sich diese Einstellung verhält, wenn sich Risiken häufen. Das Ergebnis zeigt Risikostatus, Zeit bis zu Ereignissen und was zuerst bricht.",
+      "provided": "Was Sie angegeben haben",
+      "happens": "Was als nächstes passiert",
+      "test": "Stressszenarien durchlaufen Risikobereiche",
+      "stop": "Harte Grenze: Liquidität unter 1 Monat Gehalt",
+      "warning": "Frühwarnung: Entlassungszone wird ausgelöst"
+    }
+  }
+}

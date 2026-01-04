@@ -1,0 +1,55 @@
+{
+  "title": "Einstellungssicherheitsstatus",
+  "riskZones": "Risikozonen",
+  "currentPosition": "Aktuelle Position",
+
+  "status": {
+    "safe": {
+      "title": "Sichere Einstellung",
+      "description": "Getestete Negativszenarien bleiben außerhalb der Entlassungs- und Gehaltsschwellen."
+    },
+    "risky": {
+      "title": "Riskante Einstellung",
+      "description": "Ein moderater Rückgang bringt Sie innerhalb von {{months}} Monaten in die Entlassungszone."
+    },
+    "dangerous": {
+      "title": "Gefährliche Einstellung",
+      "description": "Risiko eines Liquiditätsengpasses unter realistischen Bedingungen innerhalb von {{months}} Monaten."
+    }
+  },
+
+  "timeline": {
+    "title": "Zeit bis zu Risikoereignissen (Stressergebnis)",
+    "earliestEvent": "Frühestes Ereignis: {{event}} in Monat {{month}}",
+    "layoffZone": "Zeit bis zur Entlassungszone",
+    "payrollBreach": "Zeit bis zum Gehaltsengpass",
+    "noEvents": "Keine Risikoereignisse innerhalb von {{months}} Monaten (unter getestetem Rückgang)",
+    "notReached": "nicht innerhalb des Horizonts erreicht"
+  },
+
+  "failureLadder": {
+    "title": "Versagensleiter (Was zuerst bricht und warum)",
+    "stages": {
+      "healthy": "Gesunde Auslastung",
+      "drops": "Auslastung sinkt",
+      "bench": "Bank baut sich auf (> 25% für 2 Monate)",
+      "layoff": "Erzwungene Entlassungszone (Laufzeit unter 3 Monaten)",
+      "breach": "Gehaltsengpass (Liquidität < 1 Monat Gehalt)"
+    },
+    "whatBreaksFirst": "Was zuerst bricht",
+    "breakpoints": "Schwellenwerte",
+    "suggestedAction": "Empfohlene Maßnahme"
+  },
+
+  "zones": {
+    "dangerous": "Gefährlich = Liquidität unter 1 Monat Gehalt.",
+    "risky": "Riskant = tritt in Entlassungszone ein (Laufzeit unter 3 Monaten ODER Bank > 25% für 2 Monate)."
+  },
+
+  "actions": {
+    "editAnswers": "Antworten bearbeiten",
+    "runAgain": "Belastungstest durchführen"
+  },
+
+  "disclaimer": "Dies ist ein ungefähres Modell für Entscheidungsrobustheit. Es bietet keine Finanzberatung oder präzise Prognosen."
+}

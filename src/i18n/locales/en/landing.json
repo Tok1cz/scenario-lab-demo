@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "title": "See how risky your next hire could be",
+    "subtitle": "We'll run a hiring stress test using conservative defaults. You can adjust anything later."
+  },
+  "assumptions": {
+    "title": "Using conservative baseline assumptions:",
+    "cashBuffer": "3-6 months cash buffer",
+    "hireCost": "€6k-€8k hire",
+    "utilization": "utilization downside to ~70%",
+    "payments": "payments sometimes late"
+  },
+  "benefits": {
+    "title": "What you'll see in 60 seconds",
+    "status": "Whether this hire is Safe, Risky, or Dangerous",
+    "timeline": "How long until layoffs or payroll risk appear",
+    "breakpoints": "What breaks first if things go wrong"
+  },
+  "differentiation": {
+    "title": "Why this is different from a spreadsheet",
+    "noSetup": "No setup or exports",
+    "ranges": "Uses ranges, not fragile point estimates",
+    "breakpoints": "Shows breakpoints, not just numbers"
+  },
+  "cta": {
+    "primary": "Run hiring stress test",
+    "secondary": "Adjust assumptions",
+    "customize": "Want to customize assumptions first?"
+  },
+  "disclaimer": "Assumptions are intentionally conservative to avoid false confidence. You can refine them anytime."
+}

@@ -1,0 +1,58 @@
+{
+  "progress": "Progress",
+  "step": "Step {{current}} of {{total}}",
+  "complete": "{{percent}}% complete",
+
+  "steps": {
+    "hireType": {
+      "title": "Let's stress-test a hiring decision",
+      "subtitle": "We won't predict success. We'll test what happens if things go wrong.",
+      "question": "What best describes the hire you're considering?",
+      "help": "Pick the closest option. This helps interpret risk, not compute precision.",
+      "types": {
+        "first": "First hire to support growth",
+        "replacement": "Replacement / backfill",
+        "capacity": "Capacity hire for expected work",
+        "preemptive": "Preemptive hire (before revenue is locked)"
+      }
+    },
+
+    "financial": {
+      "title": "Financial inputs",
+      "cashBuffer": {
+        "label": "Cash buffer",
+        "help": "Cash available to absorb downside risk"
+      },
+      "hireCost": {
+        "label": "Hire cost (monthly)",
+        "help": "Fully loaded monthly cost of the new hire"
+      },
+      "startTiming": {
+        "label": "Start timing",
+        "help": "When would this person start?"
+      }
+    },
+
+    "downside": {
+      "title": "Downside assumptions",
+      "utilization": {
+        "label": "Utilization downside",
+        "help": "How low could billable utilization realistically drop?"
+      },
+      "paymentDelay": {
+        "label": "Payment delays",
+        "help": "How late do payments sometimes arrive?"
+      }
+    },
+
+    "review": {
+      "title": "Ready to run the stress test",
+      "subtitle": "We will test how this hire behaves if downsides stack together. The result will show risk status, time-to-events, and what breaks first.",
+      "provided": "What you provided",
+      "happens": "What happens next",
+      "test": "Stress scenarios sweep over downside ranges",
+      "stop": "Hard stop: cash below 1 month payroll",
+      "warning": "Early warning: layoff zone triggers"
+    }
+  }
+}

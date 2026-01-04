@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "title": "Wie riskant ist Ihre nächste Einstellung?",
+    "subtitle": "Wir führen einen Belastungstest mit konservativen Standardwerten durch. Sie können später alles anpassen."
+  },
+  "assumptions": {
+    "title": "Verwendung konservativer Basisannahmen:",
+    "cashBuffer": "3-6 Monate Liquiditätspuffer",
+    "hireCost": "€6k-€8k Einstellungskosten",
+    "utilization": "Auslastungsrückgang auf ~70%",
+    "payments": "Zahlungen manchmal verspätet"
+  },
+  "benefits": {
+    "title": "Was Sie in 60 Sekunden sehen werden",
+    "status": "Ob diese Einstellung sicher, riskant oder gefährlich ist",
+    "timeline": "Wie lange bis Entlassungen oder Gehaltsrisiken auftreten",
+    "breakpoints": "Was zuerst bricht, wenn es schief geht"
+  },
+  "differentiation": {
+    "title": "Warum dies anders ist als eine Tabellenkalkulation",
+    "noSetup": "Keine Einrichtung oder Exporte",
+    "ranges": "Verwendet Bereiche, keine fragilen Punktschätzungen",
+    "breakpoints": "Zeigt Schwellenwerte, nicht nur Zahlen"
+  },
+  "cta": {
+    "primary": "Belastungstest durchführen",
+    "secondary": "Annahmen anpassen",
+    "customize": "Möchten Sie die Annahmen zuerst anpassen?"
+  },
+  "disclaimer": "Annahmen sind bewusst konservativ, um falsches Vertrauen zu vermeiden. Sie können sie jederzeit verfeinern."
+}
