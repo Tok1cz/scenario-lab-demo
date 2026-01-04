@@ -49,8 +49,10 @@ describe("RadioOptionCard", () => {
       <RadioOptionCard title="Test Option" selected={true} onClick={vi.fn()} />
     );
 
-    const card = container.querySelector(".selected");
-    expect(card).toBeInTheDocument();
+    const card = container.querySelector(
+      '[class*="optionCard"]'
+    ) as HTMLElement;
+    expect(card?.className).toMatch(/selected/);
   });
 
   it("does not apply selected styling when selected is false", () => {

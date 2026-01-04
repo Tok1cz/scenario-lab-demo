@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Step4Downside from "../Step4Downside";
+import styles from "../RadioOptionCard.module.css";
 
 describe("Step4Downside", () => {
   it("renders step header with correct step number", () => {
@@ -135,7 +136,7 @@ describe("Step4Downside", () => {
   });
 
   it("displays selected utilization downside option", () => {
-    render(
+    const { container } = render(
       <Step4Downside
         utilizationDownside="slight"
         paymentRisk=""
@@ -144,12 +145,14 @@ describe("Step4Downside", () => {
       />
     );
 
-    const card = screen.getByText("step4.options.slight.title").closest("div");
-    expect(card).toHaveClass("selected");
+    const card = screen
+      .getByText("step4.options.slight.title")
+      .closest("." + styles.optionCard);
+    expect(card).toHaveClass(styles.selected);
   });
 
   it("displays selected payment risk option", () => {
-    render(
+    const { container } = render(
       <Step4Downside
         utilizationDownside=""
         paymentRisk="medium"
@@ -160,8 +163,8 @@ describe("Step4Downside", () => {
 
     const card = screen
       .getByText("step4.sidebar.options.medium.title")
-      .closest("div");
-    expect(card).toHaveClass("selected");
+      .closest("." + styles.optionCard);
+    expect(card).toHaveClass(styles.selected);
   });
 
   it("renders step title and subtitle", () => {
@@ -215,11 +218,15 @@ describe("Step4Downside", () => {
       />
     );
 
-    let card = screen.getByText("step4.options.severe.title").closest("div");
-    expect(card).toHaveClass("selected");
+    let card = screen
+      .getByText("step4.options.severe.title")
+      .closest("." + styles.optionCard);
+    expect(card).toHaveClass(styles.selected);
 
-    card = screen.getByText("step4.sidebar.options.low.title").closest("div");
-    expect(card).toHaveClass("selected");
+    card = screen
+      .getByText("step4.sidebar.options.low.title")
+      .closest("." + styles.optionCard);
+    expect(card).toHaveClass(styles.selected);
 
     // Change to different values
     rerender(
@@ -231,11 +238,15 @@ describe("Step4Downside", () => {
       />
     );
 
-    card = screen.getByText("step4.options.moderate.title").closest("div");
-    expect(card).toHaveClass("selected");
+    card = screen
+      .getByText("step4.options.moderate.title")
+      .closest("." + styles.optionCard);
+    expect(card).toHaveClass(styles.selected);
 
-    card = screen.getByText("step4.sidebar.options.high.title").closest("div");
-    expect(card).toHaveClass("selected");
+    card = screen
+      .getByText("step4.sidebar.options.high.title")
+      .closest("." + styles.optionCard);
+    expect(card).toHaveClass(styles.selected);
   });
 
   it("handles all downside levels correctly", async () => {

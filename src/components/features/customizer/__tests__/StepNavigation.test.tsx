@@ -59,8 +59,8 @@ describe("StepNavigation", () => {
       <StepNavigation onBack={vi.fn()} onNext={vi.fn()} nextDisabled={true} />
     );
 
-    const nextButton = screen.getByText("Next") as HTMLButtonElement;
-    expect(nextButton.disabled).toBe(true);
+    const nextButton = screen.getByRole("button", { name: "Next" });
+    expect(nextButton).toBeDisabled();
   });
 
   it("enables next button when nextDisabled is false", () => {
@@ -68,8 +68,8 @@ describe("StepNavigation", () => {
       <StepNavigation onBack={vi.fn()} onNext={vi.fn()} nextDisabled={false} />
     );
 
-    const nextButton = screen.getByText("Next") as HTMLButtonElement;
-    expect(nextButton.disabled).toBe(false);
+    const nextButton = screen.getByRole("button", { name: "Next" });
+    expect(nextButton).toBeEnabled();
   });
 
   it("buttons have different styling (back vs next)", () => {
