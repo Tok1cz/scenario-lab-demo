@@ -56,8 +56,12 @@ export function getRiskZonePosition(
   timeToPayroll: number | null | undefined,
 ): number {
   if (!timeToLayoff && !timeToPayroll) return 15;
-  if (!timeToLayoff) return 15;
-  if (timeToLayoff <= 3) return 85;
-  if (timeToLayoff <= 5) return 60;
+
+  const earliestEvent = [timeToLayoff, timeToPayroll]
+    .filter((v): v is number => v != null)
+    .reduce((a, b) => Math.min(a, b), Number.POSITIVE_INFINITY);
+
+  if (earliestEvent <= 3) return 85;
+  if (earliestEvent <= 5) return 60;
   return 15;
 }

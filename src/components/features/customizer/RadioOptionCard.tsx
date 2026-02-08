@@ -19,7 +19,16 @@ export default function RadioOptionCard({
 }: RadioOptionCardProps) {
   return (
     <Card
+      role="radio"
+      aria-checked={selected}
+      tabIndex={0}
       onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick();
+        }
+      }}
       className={`${styles.optionCard} ${selected ? styles.selected : ""}`}
       styles={{ body: { padding: spacing.md } }}
       hoverable

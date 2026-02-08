@@ -1,10 +1,11 @@
+import type { ReactNode } from "react";
 import { Typography } from "antd";
 import { fontSize, spacing } from "../../../lib/theme/designTokens";
 
 const { Text } = Typography;
 
 interface SectionHeaderProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export function SectionHeader({ children }: SectionHeaderProps) {

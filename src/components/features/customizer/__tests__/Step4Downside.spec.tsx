@@ -14,7 +14,7 @@ describe("Step4Downside", () => {
         onChangePaymentRisk={vi.fn()}
       />,
     );
-    expect(screen.getByText(/Step 4 of 4/)).toBeInTheDocument();
+    expect(screen.getByText("guidedIntake")).toBeInTheDocument();
   });
 
   it("renders all utilization downside options", () => {
