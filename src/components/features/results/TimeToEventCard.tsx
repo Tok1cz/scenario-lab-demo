@@ -1,4 +1,5 @@
 import { Card, Typography } from "antd";
+import { useTranslation } from "react-i18next";
 import { spacing, fontSize } from "../../../lib/theme/designTokens";
 
 const { Title, Text } = Typography;
@@ -14,6 +15,8 @@ export function TimeToEventCard({
   months,
   subtitle,
 }: TimeToEventCardProps) {
+  const { t } = useTranslation("results");
+
   return (
     <Card bodyStyle={{ padding: spacing.lg }}>
       <Text
@@ -34,7 +37,9 @@ export function TimeToEventCard({
           fontSize: fontSize.display1,
         }}
       >
-        {months ? `${months} months` : "6+ months"}
+        {months
+          ? t("timeline.monthsValue", { months })
+          : t("timeline.monthsPlus")}
       </Title>
       <Text
         type="secondary"

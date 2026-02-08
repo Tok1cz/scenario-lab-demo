@@ -65,8 +65,7 @@ export function FailureLadder({
             {t("failureLadder.whatBreaksFirst")}
           </Text>
           <Text style={{ fontSize: fontSize.md }}>
-            Utilization softness creates a bench, then cash pressure. Layoffs
-            appear before insolvency.
+            {t("failureLadder.whatBreaksFirstExplanation")}
           </Text>
         </div>
 
@@ -82,8 +81,7 @@ export function FailureLadder({
             {t("failureLadder.breakpoints")}
           </Text>
           <Text style={{ fontSize: fontSize.md }}>
-            Below ~70% utilization for 2 months OR a 30-day delay from the top
-            client triggers the layoff zone.
+            {t("failureLadder.breakpointsExplanation")}
           </Text>
         </div>
 
@@ -99,8 +97,7 @@ export function FailureLadder({
             {t("failureLadder.suggestedAction")}
           </Text>
           <Text style={{ fontSize: fontSize.md }}>
-            {suggestedAction ||
-              "Proceed. Keep an eye on utilization and payment discipline, but no immediate constraints appear."}
+            {suggestedAction || t("failureLadder.defaultAction")}
           </Text>
         </div>
       </div>

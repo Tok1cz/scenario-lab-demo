@@ -1,4 +1,5 @@
 import { Typography } from "antd";
+import { useTranslation } from "react-i18next";
 import { spacing, fontSize } from "../../../lib/theme/designTokens";
 import styles from "./TimelineVisualization.module.css";
 
@@ -21,12 +22,13 @@ export function TimelineVisualization({
   payrollMonth,
   horizonMonths = 6,
 }: TimelineVisualizationProps) {
+  const { t } = useTranslation("results");
   const events: TimelineEvent[] = [];
 
   if (layoffMonth) {
     events.push({
       month: layoffMonth,
-      label: "Layoff zone",
+      label: t("timeline.layoffZoneEvent"),
       color: "#faad14",
     });
   }
@@ -34,7 +36,7 @@ export function TimelineVisualization({
   if (payrollMonth && payrollMonth <= horizonMonths) {
     events.push({
       month: payrollMonth,
-      label: "Payroll breach (6+)",
+      label: t("timeline.payrollBreachEvent"),
       color: "#ff4d4f",
     });
   }
@@ -82,7 +84,7 @@ export function TimelineVisualization({
                   {month}
                 </Text>
               </div>
-            )
+            ),
           )}
         </div>
       </div>
@@ -96,9 +98,7 @@ export function TimelineVisualization({
           textAlign: "center",
         }}
       >
-        {hasEvents
-          ? "Note: Pins mark threshold crossings under tested downside"
-          : "No threshold crossings within horizon"}
+        {hasEvents ? t("timeline.pinsNote") : t("timeline.noCrossings")}
       </Text>
     </div>
   );
