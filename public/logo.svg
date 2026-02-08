@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Hiring Sim icon">
+  <!-- connections -->
+  <path
+    d="M32 10v18M32 28L12 48M32 28l20 20"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="3"
+    stroke-linecap="round"
+    opacity="0.55"
+  />
+
+  <!-- nodes -->
+  <circle cx="32" cy="8" r="6" fill="currentColor" opacity="0.95"/>
+  <circle cx="12" cy="48" r="6" fill="currentColor" opacity="0.65"/>
+  <circle cx="52" cy="48" r="6" fill="currentColor" opacity="0.65"/>
+
+  <!-- emphasized outcome -->
+  <circle
+    cx="52"
+    cy="48"
+    r="10"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="3"
+    opacity="0.35"
+  />
+</svg>
