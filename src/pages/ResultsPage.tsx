@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Layout, Typography, Card } from "antd";
-import type { components } from "../api/generated";
+import { useNavigate, Navigate } from "react-router-dom";
+import { Layout, Typography, Card, Button, Space, Result } from "antd";
+import { EditOutlined, ReloadOutlined, HomeOutlined } from "@ant-design/icons";
 import { spacing, fontSize } from "../lib/theme/designTokens";
+import { useSimulation } from "../hooks/useSimulation";
 import {
   getStatusConfig,
   getRiskZonePosition,
@@ -19,37 +22,67 @@ import styles from "./ResultsPage.module.css";
 const { Content } = Layout;
 const { Text } = Typography;
 
-type HiringSimResponse = components["schemas"]["HiringSimResponse"];
-
-// Mock data for development
-const mockData: HiringSimResponse = {
-  status: "risky",
-  time_to_layoff_zone_months: 4,
-  time_to_payroll_breach_months: 6,
-  horizon_months: 6,
-  earliest_event: {
-    type: "layoff_zone",
-    month: 4,
-  },
-  breakpoints: ["utilization_drops", "bench_builds", "layoff_zone"],
-  what_breaks_first: "layoff_zone",
-  suggested_action:
-    "Delay start by 1-2 months OR secure coverage to keep utilization above the breakpoint.",
-  assumptions_used: {
-    cash_buffer_months: 4,
-    hire_cost_monthly: 8000,
-    utilization_downside: 70,
-  },
-};
-
 export default function ResultsPage() {
   const { t } = useTranslation("results");
-  const data = mockData;
+  const navigate = useNavigate();
+  const { state, reset, startSimulation } = useSimulation();
+
+  // Navigate to /simulate only after state has committed to "loading"
+  useEffect(() => {
+    if (state.status === "loading") {
+      navigate("/simulate");
+    }
+  }, [state.status, navigate]);
+
+  if (state.status === "error") {
+    return (
+      <Layout style={{ minHeight: "100vh", background: "#fafafa" }}>
+        <Content
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Result
+            status="error"
+            title={t("error.title")}
+            subTitle={state.error ?? ""}
+            extra={[
+              <Button
+                key="home"
+                onClick={() => {
+                  reset();
+                  navigate("/");
+                }}
+              >
+                {t("actions.backToHome")}
+              </Button>,
+              <Button
+                key="retry"
+                type="primary"
+                onClick={() => navigate("/customize")}
+              >
+                {t("actions.tryAgain")}
+              </Button>,
+            ]}
+          />
+        </Content>
+      </Layout>
+    );
+  }
+
+  if (state.status !== "success" || !state.result) {
+    // No data — redirect to home
+    return <Navigate to="/" replace />;
+  }
+
+  const data = state.result;
 
   const statusConfig = getStatusConfig(data.status);
   const riskPosition = getRiskZonePosition(
     data.time_to_layoff_zone_months,
-    data.time_to_payroll_breach_months
+    data.time_to_payroll_breach_months,
   );
 
   const failureStages = [
@@ -89,7 +122,9 @@ export default function ResultsPage() {
       data.status === "risky" &&
       data.earliest_event?.type === "layoff_zone"
     ) {
-      return `A moderate downside pushes you into the layoff zone within ${data.earliest_event.month} months.`;
+      return t("status.risky.description", {
+        months: data.earliest_event.month,
+      });
     }
     return statusConfig.description;
   };
@@ -98,17 +133,20 @@ export default function ResultsPage() {
     if (data.earliest_event) {
       const eventType =
         data.earliest_event.type === "layoff_zone"
-          ? "Layoff zone"
-          : "Payroll breach";
-      return `Earliest event: ${eventType} in Month ${data.earliest_event.month}`;
+          ? t("timeline.layoffZoneEvent")
+          : t("timeline.payrollBreachEvent");
+      return t("timeline.earliestEvent", {
+        event: eventType,
+        month: data.earliest_event.month,
+      });
     }
     return t("timeline.noEvents", { months: data.horizon_months || 6 });
   };
 
   const getLayoffSubtitle = () => {
     return data.time_to_layoff_zone_months
-      ? "- runway < 3 months OR bench > 25% for 2 months"
-      : "- not reached within horizon";
+      ? t("timeline.layoffSubtitle")
+      : t("timeline.layoffNotReached");
   };
 
   return (
@@ -171,7 +209,7 @@ export default function ResultsPage() {
             <TimeToEventCard
               label={t("timeline.payrollBreach")}
               months={data.time_to_payroll_breach_months}
-              subtitle="- cash < 1 month payroll"
+              subtitle={t("timeline.payrollSubtitle")}
             />
           </div>
 
@@ -190,8 +228,7 @@ export default function ResultsPage() {
               marginTop: spacing.md,
             }}
           >
-            Note: This is a stress test outcome over a 6-month horizon - not a
-            point forecast.
+            {t("timeline.stressTestNote")}
           </Text>
         </div>
 
@@ -203,6 +240,45 @@ export default function ResultsPage() {
             currentStageKey={data.what_breaks_first}
             suggestedAction={data.suggested_action}
           />
+        </div>
+
+        {/* Action Buttons */}
+        <div
+          style={{
+            marginTop: spacing.xl,
+            display: "flex",
+            justifyContent: "center",
+            gap: spacing.md,
+          }}
+        >
+          <Space size="middle" wrap>
+            <Button
+              size="large"
+              icon={<HomeOutlined />}
+              onClick={() => {
+                reset();
+                navigate("/");
+              }}
+            >
+              {t("actions.startOver")}
+            </Button>
+            <Button
+              size="large"
+              icon={<EditOutlined />}
+              onClick={() => navigate("/customize")}
+            >
+              {t("actions.editAnswers")}
+            </Button>
+            <Button
+              type="primary"
+              size="large"
+              icon={<ReloadOutlined />}
+              onClick={() => startSimulation()}
+              style={{ background: "#1f2937", borderColor: "#1f2937" }}
+            >
+              {t("actions.runAgain")}
+            </Button>
+          </Space>
         </div>
 
         {/* Footer */}

@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { Layout } from "antd";
 import { spacing } from "../lib/theme/designTokens";
+import { useSimulation } from "../hooks/useSimulation";
 import {
   StepNavigation,
   Step1HireType,
@@ -12,48 +14,33 @@ import {
 
 const { Content } = Layout;
 
-interface FormData {
-  hireType: string;
-  cashBuffer: string;
-  teamSize: string;
-  utilization: string;
-  hireCost: string;
-  startTiming: string;
-  billability: string;
-  utilizationDownside: string;
-  paymentRisk: string;
-}
-
 export default function CustomizerPage() {
   const { t } = useTranslation("customizer");
-  const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState<FormData>({
-    hireType: "",
-    cashBuffer: "",
-    teamSize: "",
-    utilization: "",
-    hireCost: "",
-    startTiming: "",
-    billability: "",
-    utilizationDownside: "",
-    paymentRisk: "",
-  });
+  const navigate = useNavigate();
+  const { state, updateField, nextStep, prevStep, startSimulation } =
+    useSimulation();
 
-  const updateField = (field: keyof FormData, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
+  const { formData, currentStep } = state;
+
+  useEffect(() => {
+    if (state.status === "loading") {
+      navigate("/simulate");
+    }
+  }, [state.status, navigate]);
 
   const handleNext = () => {
     if (currentStep < 4) {
-      setCurrentStep((prev) => prev + 1);
+      nextStep();
     } else {
-      console.log("Submit form:", formData);
+      startSimulation();
     }
   };
 
   const handleBack = () => {
     if (currentStep > 1) {
-      setCurrentStep((prev) => prev - 1);
+      prevStep();
+    } else {
+      navigate("/");
     }
   };
 
@@ -125,7 +112,7 @@ export default function CustomizerPage() {
           nextLabel={
             currentStep === 4 ? t("navigation.submit") : t("navigation.next")
           }
-          showBack={currentStep > 1}
+          showBack={true}
         />
       </Content>
     </Layout>
