@@ -2,15 +2,12 @@ import type { ThemeConfig } from "antd";
 
 export const theme: ThemeConfig = {
   token: {
-    // Primary brand color
     colorPrimary: "#1890ff",
 
-    // Semantic colors matching risk statuses
-    colorSuccess: "#10b981", // Safe - green
-    colorWarning: "#f59e0b", // Risky - amber
-    colorError: "#ef4444", // Dangerous - red
+    colorSuccess: "#10b981",
+    colorWarning: "#f59e0b",
+    colorError: "#ef4444",
 
-    // Typography
     fontFamily:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
     fontSize: 16,
@@ -18,11 +15,9 @@ export const theme: ThemeConfig = {
     fontSizeHeading2: 32,
     fontSizeHeading3: 24,
 
-    // Spacing & Layout
     borderRadius: 8,
     controlHeight: 44,
 
-    // Colors
     colorBgContainer: "#ffffff",
     colorBgLayout: "#f5f5f5",
     colorText: "#1f2937",

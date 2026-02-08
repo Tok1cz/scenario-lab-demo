@@ -15,7 +15,7 @@ export interface StatusConfig {
 }
 
 export function getStatusConfig(
-  status: string | null | undefined
+  status: string | null | undefined,
 ): StatusConfig {
   switch (status) {
     case "safe":
@@ -54,11 +54,11 @@ export function getStatusConfig(
 
 export function getRiskZonePosition(
   timeToLayoff: number | null | undefined,
-  timeToPayroll: number | null | undefined
+  timeToPayroll: number | null | undefined,
 ): number {
-  if (!timeToLayoff && !timeToPayroll) return 15; // Safe - far left
+  if (!timeToLayoff && !timeToPayroll) return 15;
   if (!timeToLayoff) return 15;
-  if (timeToLayoff <= 3) return 85; // Dangerous
-  if (timeToLayoff <= 5) return 60; // Risky
-  return 15; // Safe
+  if (timeToLayoff <= 3) return 85;
+  if (timeToLayoff <= 5) return 60;
+  return 15;
 }
