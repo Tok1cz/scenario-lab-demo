@@ -3,6 +3,7 @@ import {
   useContext,
   useReducer,
   useCallback,
+  useEffect,
   type ReactNode,
 } from "react";
 import type { components } from "../api-schema/generated";
@@ -141,8 +142,28 @@ interface SimulationContextValue {
 
 const SimulationContext = createContext<SimulationContextValue | null>(null);
 
+const STORAGE_KEY = "simulation-state";
+
+function loadPersistedState(): SimulationState {
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    if (!raw) return INITIAL_STATE;
+    const parsed = JSON.parse(raw) as SimulationState;
+    if (parsed.status === "loading") {
+      return { ...parsed, status: "idle" };
+    }
+    return parsed;
+  } catch {
+    return INITIAL_STATE;
+  }
+}
+
 export function SimulationProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
+  const [state, dispatch] = useReducer(reducer, undefined, loadPersistedState);
+
+  useEffect(() => {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }, [state]);
 
   const updateField = useCallback(
     (field: keyof FormData, value: string) =>
