@@ -13,7 +13,7 @@ describe("Step2Baseline", () => {
         onChangeCashBuffer={vi.fn()}
         onChangeTeamSize={vi.fn()}
         onChangeUtilization={vi.fn()}
-      />
+      />,
     );
     expect(screen.getByText(/Step 2 of 4/)).toBeInTheDocument();
   });
@@ -27,7 +27,7 @@ describe("Step2Baseline", () => {
         onChangeCashBuffer={vi.fn()}
         onChangeTeamSize={vi.fn()}
         onChangeUtilization={vi.fn()}
-      />
+      />,
     );
     expect(screen.getByText("step2.options.under1")).toBeInTheDocument();
     expect(screen.getByText("step2.options.1-3")).toBeInTheDocument();
@@ -44,10 +44,10 @@ describe("Step2Baseline", () => {
         onChangeCashBuffer={vi.fn()}
         onChangeTeamSize={vi.fn()}
         onChangeUtilization={vi.fn()}
-      />
+      />,
     );
     const input = screen.getByPlaceholderText(
-      "step2.sidebar.teamSize.placeholder"
+      "step2.sidebar.teamSize.placeholder",
     );
     expect(input).toBeInTheDocument();
   });
@@ -63,7 +63,7 @@ describe("Step2Baseline", () => {
         onChangeCashBuffer={onChangeCashBuffer}
         onChangeTeamSize={vi.fn()}
         onChangeUtilization={vi.fn()}
-      />
+      />,
     );
 
     const option = screen.getByText("step2.options.3-6").closest("div");
@@ -84,11 +84,11 @@ describe("Step2Baseline", () => {
         onChangeCashBuffer={vi.fn()}
         onChangeTeamSize={onChangeTeamSize}
         onChangeUtilization={vi.fn()}
-      />
+      />,
     );
 
     const input = screen.getByPlaceholderText(
-      "step2.sidebar.teamSize.placeholder"
+      "step2.sidebar.teamSize.placeholder",
     );
     await user.type(input, "18");
     expect(onChangeTeamSize).toHaveBeenCalled();
@@ -103,16 +103,16 @@ describe("Step2Baseline", () => {
         onChangeCashBuffer={vi.fn()}
         onChangeTeamSize={vi.fn()}
         onChangeUtilization={vi.fn()}
-      />
+      />,
     );
     expect(
-      screen.getByText("step2.sidebar.utilization.options.full")
+      screen.getByText("step2.sidebar.utilization.options.full"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("step2.sidebar.utilization.options.stretched")
+      screen.getByText("step2.sidebar.utilization.options.stretched"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("step2.sidebar.utilization.options.bench")
+      screen.getByText("step2.sidebar.utilization.options.bench"),
     ).toBeInTheDocument();
   });
 
@@ -127,7 +127,7 @@ describe("Step2Baseline", () => {
         onChangeCashBuffer={vi.fn()}
         onChangeTeamSize={vi.fn()}
         onChangeUtilization={onChangeUtilization}
-      />
+      />,
     );
 
     const option = screen
@@ -140,7 +140,7 @@ describe("Step2Baseline", () => {
   });
 
   it("displays selected cash buffer option", () => {
-    const { rerender } = render(
+    render(
       <Step2Baseline
         cashBuffer="1-3"
         teamSize=""
@@ -148,7 +148,7 @@ describe("Step2Baseline", () => {
         onChangeCashBuffer={vi.fn()}
         onChangeTeamSize={vi.fn()}
         onChangeUtilization={vi.fn()}
-      />
+      />,
     );
 
     expect(screen.getByText("step2.options.1-3")).toBeInTheDocument();
@@ -163,7 +163,7 @@ describe("Step2Baseline", () => {
         onChangeCashBuffer={vi.fn()}
         onChangeTeamSize={vi.fn()}
         onChangeUtilization={vi.fn()}
-      />
+      />,
     );
 
     const input = screen.getByDisplayValue("20");
@@ -179,11 +179,11 @@ describe("Step2Baseline", () => {
         onChangeCashBuffer={vi.fn()}
         onChangeTeamSize={vi.fn()}
         onChangeUtilization={vi.fn()}
-      />
+      />,
     );
 
     expect(
-      screen.getByText("step2.sidebar.utilization.options.stretched")
+      screen.getByText("step2.sidebar.utilization.options.stretched"),
     ).toBeInTheDocument();
   });
 
@@ -196,7 +196,7 @@ describe("Step2Baseline", () => {
         onChangeCashBuffer={vi.fn()}
         onChangeTeamSize={vi.fn()}
         onChangeUtilization={vi.fn()}
-      />
+      />,
     );
     expect(screen.getByText("step2.title")).toBeInTheDocument();
     expect(screen.getByText("step2.subtitle")).toBeInTheDocument();
@@ -211,7 +211,7 @@ describe("Step2Baseline", () => {
         onChangeCashBuffer={vi.fn()}
         onChangeTeamSize={vi.fn()}
         onChangeUtilization={vi.fn()}
-      />
+      />,
     );
     expect(screen.getByText("step2.sidebar.title")).toBeInTheDocument();
   });

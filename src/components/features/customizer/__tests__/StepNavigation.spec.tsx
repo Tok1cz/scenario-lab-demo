@@ -84,7 +84,6 @@ describe("StepNavigation", () => {
   });
 
   it("does not call onBack when back button is disabled", async () => {
-    const user = userEvent.setup();
     const onBack = vi.fn();
     render(
       <StepNavigation onBack={onBack} onNext={vi.fn()} showBack={false} />,

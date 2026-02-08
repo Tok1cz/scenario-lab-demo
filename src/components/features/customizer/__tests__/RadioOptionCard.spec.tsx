@@ -65,7 +65,7 @@ describe("RadioOptionCard", () => {
   });
 
   it("has correct text styling when selected", () => {
-    const { container } = render(
+    render(
       <RadioOptionCard title="Test Option" selected={true} onClick={vi.fn()} />
     );
 

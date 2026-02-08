@@ -12,7 +12,7 @@ describe("Step4Downside", () => {
         paymentRisk=""
         onChangeUtilizationDownside={vi.fn()}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
     expect(screen.getByText(/Step 4 of 4/)).toBeInTheDocument();
   });
@@ -24,11 +24,11 @@ describe("Step4Downside", () => {
         paymentRisk=""
         onChangeUtilizationDownside={vi.fn()}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
     expect(screen.getByText("step4.options.slight.title")).toBeInTheDocument();
     expect(
-      screen.getByText("step4.options.moderate.title")
+      screen.getByText("step4.options.moderate.title"),
     ).toBeInTheDocument();
     expect(screen.getByText("step4.options.severe.title")).toBeInTheDocument();
   });
@@ -40,16 +40,16 @@ describe("Step4Downside", () => {
         paymentRisk=""
         onChangeUtilizationDownside={vi.fn()}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
     expect(
-      screen.getByText("step4.options.slight.subtitle")
+      screen.getByText("step4.options.slight.subtitle"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("step4.options.moderate.subtitle")
+      screen.getByText("step4.options.moderate.subtitle"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("step4.options.severe.subtitle")
+      screen.getByText("step4.options.severe.subtitle"),
     ).toBeInTheDocument();
   });
 
@@ -60,16 +60,16 @@ describe("Step4Downside", () => {
         paymentRisk=""
         onChangeUtilizationDownside={vi.fn()}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
     expect(
-      screen.getByText("step4.sidebar.options.low.title")
+      screen.getByText("step4.sidebar.options.low.title"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("step4.sidebar.options.medium.title")
+      screen.getByText("step4.sidebar.options.medium.title"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("step4.sidebar.options.high.title")
+      screen.getByText("step4.sidebar.options.high.title"),
     ).toBeInTheDocument();
   });
 
@@ -80,16 +80,16 @@ describe("Step4Downside", () => {
         paymentRisk=""
         onChangeUtilizationDownside={vi.fn()}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
     expect(
-      screen.getByText("step4.sidebar.options.low.subtitle")
+      screen.getByText("step4.sidebar.options.low.subtitle"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("step4.sidebar.options.medium.subtitle")
+      screen.getByText("step4.sidebar.options.medium.subtitle"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("step4.sidebar.options.high.subtitle")
+      screen.getByText("step4.sidebar.options.high.subtitle"),
     ).toBeInTheDocument();
   });
 
@@ -102,7 +102,7 @@ describe("Step4Downside", () => {
         paymentRisk=""
         onChangeUtilizationDownside={onChangeUtilizationDownside}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
 
     const option = screen
@@ -123,7 +123,7 @@ describe("Step4Downside", () => {
         paymentRisk=""
         onChangeUtilizationDownside={vi.fn()}
         onChangePaymentRisk={onChangePaymentRisk}
-      />
+      />,
     );
 
     const option = screen
@@ -136,13 +136,13 @@ describe("Step4Downside", () => {
   });
 
   it("displays selected utilization downside option", () => {
-    const { container } = render(
+    render(
       <Step4Downside
         utilizationDownside="slight"
         paymentRisk=""
         onChangeUtilizationDownside={vi.fn()}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
 
     const card = screen
@@ -152,13 +152,13 @@ describe("Step4Downside", () => {
   });
 
   it("displays selected payment risk option", () => {
-    const { container } = render(
+    render(
       <Step4Downside
         utilizationDownside=""
         paymentRisk="medium"
         onChangeUtilizationDownside={vi.fn()}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
 
     const card = screen
@@ -174,7 +174,7 @@ describe("Step4Downside", () => {
         paymentRisk=""
         onChangeUtilizationDownside={vi.fn()}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
     expect(screen.getByText("step4.title")).toBeInTheDocument();
     expect(screen.getByText("step4.subtitle")).toBeInTheDocument();
@@ -187,7 +187,7 @@ describe("Step4Downside", () => {
         paymentRisk=""
         onChangeUtilizationDownside={vi.fn()}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
     expect(screen.getByText("step4.question")).toBeInTheDocument();
   });
@@ -199,13 +199,12 @@ describe("Step4Downside", () => {
         paymentRisk=""
         onChangeUtilizationDownside={vi.fn()}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
     expect(screen.getByText("step4.sidebar.title")).toBeInTheDocument();
   });
 
   it("allows changing both options independently", async () => {
-    const user = userEvent.setup();
     const onChangeUtilizationDownside = vi.fn();
     const onChangePaymentRisk = vi.fn();
 
@@ -215,7 +214,7 @@ describe("Step4Downside", () => {
         paymentRisk="low"
         onChangeUtilizationDownside={onChangeUtilizationDownside}
         onChangePaymentRisk={onChangePaymentRisk}
-      />
+      />,
     );
 
     let card = screen
@@ -234,7 +233,7 @@ describe("Step4Downside", () => {
         paymentRisk="high"
         onChangeUtilizationDownside={onChangeUtilizationDownside}
         onChangePaymentRisk={onChangePaymentRisk}
-      />
+      />,
     );
 
     card = screen
@@ -258,7 +257,7 @@ describe("Step4Downside", () => {
         paymentRisk=""
         onChangeUtilizationDownside={onChangeUtilizationDownside}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
 
     let option = screen.getByText("step4.options.slight.title").closest("div");
@@ -273,7 +272,7 @@ describe("Step4Downside", () => {
         paymentRisk=""
         onChangeUtilizationDownside={onChangeUtilizationDownside}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
     option = screen.getByText("step4.options.moderate.title").closest("div");
     if (option) {
@@ -287,7 +286,7 @@ describe("Step4Downside", () => {
         paymentRisk=""
         onChangeUtilizationDownside={onChangeUtilizationDownside}
         onChangePaymentRisk={vi.fn()}
-      />
+      />,
     );
     option = screen.getByText("step4.options.severe.title").closest("div");
     if (option) {
