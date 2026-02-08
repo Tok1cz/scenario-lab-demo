@@ -15,7 +15,7 @@ export default function StepSidebar({ title, items }: StepSidebarProps) {
         background: "#f9fafb",
         borderColor: "#e5e7eb",
       }}
-      bodyStyle={{ padding: spacing.lg }}
+      styles={{ body: { padding: spacing.lg } }}
     >
       <Title
         level={5}

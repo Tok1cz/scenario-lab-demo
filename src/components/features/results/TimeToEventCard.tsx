@@ -18,7 +18,7 @@ export function TimeToEventCard({
   const { t } = useTranslation("results");
 
   return (
-    <Card bodyStyle={{ padding: spacing.lg }}>
+    <Card styles={{ body: { padding: spacing.lg } }}>
       <Text
         type="secondary"
         style={{

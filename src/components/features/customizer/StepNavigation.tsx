@@ -39,11 +39,7 @@ export default function StepNavigation({
         size="large"
         onClick={onNext}
         disabled={nextDisabled}
-        style={{
-          background: "#1f2937",
-          borderColor: "#1f2937",
-          minWidth: 200,
-        }}
+        style={{ minWidth: 200 }}
       >
         {nextLabel ?? t("buttons.next")}
       </Button>

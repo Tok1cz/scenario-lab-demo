@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, Navigate } from "react-router-dom";
-import { Layout, Typography, Card, Button, Space, Result } from "antd";
+import { Layout, Typography, Button, Space, Result } from "antd";
 import { EditOutlined, ReloadOutlined, HomeOutlined } from "@ant-design/icons";
 import { spacing, fontSize } from "../lib/theme/designTokens";
 import { useSimulation } from "../hooks/useSimulation";
 import {
   getStatusConfig,
   getRiskZonePosition,
-} from "../lib/utils/resultsHelpers.tsx";
+} from "../lib/utils/resultsHelpers";
 import {
   SectionHeader,
   RiskStatusCard,
@@ -27,7 +27,6 @@ export default function ResultsPage() {
   const navigate = useNavigate();
   const { state, reset, startSimulation } = useSimulation();
 
-  // Navigate to /simulate only after state has committed to "loading"
   useEffect(() => {
     if (state.status === "loading") {
       navigate("/simulate");
@@ -36,7 +35,7 @@ export default function ResultsPage() {
 
   if (state.status === "error") {
     return (
-      <Layout style={{ minHeight: "100vh", background: "#fafafa" }}>
+      <Layout style={{ minHeight: "100vh" }}>
         <Content
           style={{
             display: "flex",
@@ -73,7 +72,6 @@ export default function ResultsPage() {
   }
 
   if (state.status !== "success" || !state.result) {
-    // No data — redirect to home
     return <Navigate to="/" replace />;
   }
 
@@ -117,40 +115,27 @@ export default function ResultsPage() {
     },
   ];
 
-  const getStatusDescription = () => {
-    if (
-      data.status === "risky" &&
-      data.earliest_event?.type === "layoff_zone"
-    ) {
-      return t("status.risky.description", {
-        months: data.earliest_event.month,
-      });
-    }
-    return statusConfig.description;
-  };
+  const statusDescription =
+    data.status === "risky" && data.earliest_event?.type === "layoff_zone"
+      ? t("status.risky.description", { months: data.earliest_event.month })
+      : t(statusConfig.descriptionKey);
 
-  const getTimelineTitle = () => {
-    if (data.earliest_event) {
-      const eventType =
-        data.earliest_event.type === "layoff_zone"
-          ? t("timeline.layoffZoneEvent")
-          : t("timeline.payrollBreachEvent");
-      return t("timeline.earliestEvent", {
-        event: eventType,
+  const timelineTitle = data.earliest_event
+    ? t("timeline.earliestEvent", {
+        event:
+          data.earliest_event.type === "layoff_zone"
+            ? t("timeline.layoffZoneEvent")
+            : t("timeline.payrollBreachEvent"),
         month: data.earliest_event.month,
-      });
-    }
-    return t("timeline.noEvents", { months: data.horizon_months || 6 });
-  };
+      })
+    : t("timeline.noEvents", { months: data.horizon_months || 6 });
 
-  const getLayoffSubtitle = () => {
-    return data.time_to_layoff_zone_months
-      ? t("timeline.layoffSubtitle")
-      : t("timeline.layoffNotReached");
-  };
+  const layoffSubtitle = data.time_to_layoff_zone_months
+    ? t("timeline.layoffSubtitle")
+    : t("timeline.layoffNotReached");
 
   return (
-    <Layout style={{ minHeight: "100vh", background: "#fafafa" }}>
+    <Layout style={{ minHeight: "100vh" }}>
       <Content
         style={{
           padding: `${spacing.xxl}px ${spacing.lg}px`,
@@ -172,7 +157,7 @@ export default function ResultsPage() {
             <SectionHeader>{t("title")}</SectionHeader>
             <RiskStatusCard
               config={statusConfig}
-              description={getStatusDescription()}
+              description={statusDescription}
             />
           </div>
 
@@ -189,22 +174,15 @@ export default function ResultsPage() {
             level={3}
             style={{ marginBottom: spacing.md, fontStyle: "italic" }}
           >
-            {getTimelineTitle()}
+            {timelineTitle}
           </Typography.Title>
 
           {/* Time to Event Cards */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: spacing.md,
-              marginBottom: spacing.xl,
-            }}
-          >
+          <div className={styles.eventCardsGrid}>
             <TimeToEventCard
               label={t("timeline.layoffZone")}
               months={data.time_to_layoff_zone_months}
-              subtitle={getLayoffSubtitle()}
+              subtitle={layoffSubtitle}
             />
             <TimeToEventCard
               label={t("timeline.payrollBreach")}
@@ -274,7 +252,6 @@ export default function ResultsPage() {
               size="large"
               icon={<ReloadOutlined />}
               onClick={() => startSimulation()}
-              style={{ background: "#1f2937", borderColor: "#1f2937" }}
             >
               {t("actions.runAgain")}
             </Button>
@@ -283,12 +260,6 @@ export default function ResultsPage() {
 
         {/* Footer */}
         <div style={{ marginTop: spacing.xl }}>
-          <Card style={{ background: "#f0f5ff", borderColor: "#adc6ff" }}>
-            <Text type="secondary" style={{ fontSize: fontSize.sm }}>
-              {t("demoNote")}
-            </Text>
-          </Card>
-
           <Text
             type="secondary"
             style={{

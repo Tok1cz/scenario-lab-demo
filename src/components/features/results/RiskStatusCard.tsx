@@ -1,15 +1,9 @@
 import { Card, Typography } from "antd";
+import { useTranslation } from "react-i18next";
 import { spacing, fontSize } from "../../../lib/theme/designTokens";
+import type { StatusConfig } from "../../../lib/utils/resultsHelpers";
 
 const { Title, Paragraph } = Typography;
-
-interface StatusConfig {
-  title: string;
-  color: string;
-  bgColor: string;
-  borderColor: string;
-  description: string;
-}
 
 interface RiskStatusCardProps {
   config: StatusConfig;
@@ -17,6 +11,8 @@ interface RiskStatusCardProps {
 }
 
 export function RiskStatusCard({ config, description }: RiskStatusCardProps) {
+  const { t } = useTranslation("results");
+
   return (
     <Card
       style={{
@@ -24,7 +20,7 @@ export function RiskStatusCard({ config, description }: RiskStatusCardProps) {
         borderColor: config.borderColor,
         borderWidth: 2,
       }}
-      bodyStyle={{ padding: spacing.xl }}
+      styles={{ body: { padding: spacing.xl } }}
     >
       <Title
         level={1}
@@ -35,7 +31,7 @@ export function RiskStatusCard({ config, description }: RiskStatusCardProps) {
           fontSize: fontSize.display2,
         }}
       >
-        {config.title}
+        {t(config.titleKey)}
       </Title>
       <Paragraph
         style={{
@@ -43,7 +39,7 @@ export function RiskStatusCard({ config, description }: RiskStatusCardProps) {
           margin: `${spacing.md}px 0 0 0`,
         }}
       >
-        {description || config.description}
+        {description ?? t(config.descriptionKey)}
       </Paragraph>
     </Card>
   );

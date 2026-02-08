@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Layout, Typography, Space, Card, Button, List } from "antd";
 import { RocketOutlined, EditOutlined } from "@ant-design/icons";
+import { spacing, fontSize } from "../lib/theme/designTokens";
 import { useSimulation } from "../hooks/useSimulation";
 
 const { Content } = Layout;
@@ -18,14 +19,6 @@ export default function LandingPage() {
       navigate("/simulate");
     }
   }, [state.status, navigate]);
-
-  const handleQuickRun = () => {
-    quickRun();
-  };
-
-  const handleCustomize = () => {
-    navigate("/customize");
-  };
 
   const assumptions = [
     t("assumptions.cashBuffer"),
@@ -47,22 +40,26 @@ export default function LandingPage() {
   ];
 
   return (
-    <Layout style={{ minHeight: "100vh", background: "#fafafa" }}>
+    <Layout style={{ minHeight: "100vh" }}>
       <Content
-        style={{ padding: "48px 24px", maxWidth: 1200, margin: "0 auto" }}
+        style={{
+          padding: `${spacing.xxl}px ${spacing.lg}px`,
+          maxWidth: 1200,
+          margin: "0 auto",
+        }}
       >
         <Space direction="vertical" size="large" style={{ width: "100%" }}>
           {/* Hero Section */}
-          <div style={{ textAlign: "center", marginBottom: 32 }}>
+          <div style={{ textAlign: "center", marginBottom: spacing.xl }}>
             <Title level={1}>{t("hero.title")}</Title>
-            <Paragraph style={{ fontSize: 18, color: "#6b7280" }}>
+            <Paragraph style={{ fontSize: fontSize.xl, color: "#6b7280" }}>
               {t("hero.subtitle")}
             </Paragraph>
           </div>
 
           {/* Assumptions Card */}
           <Card>
-            <Text strong style={{ fontSize: 16 }}>
+            <Text strong style={{ fontSize: fontSize.lg }}>
               {t("assumptions.title")}
             </Text>
             <List
@@ -73,7 +70,7 @@ export default function LandingPage() {
                   <Text>• {item}</Text>
                 </List.Item>
               )}
-              style={{ marginTop: 16 }}
+              style={{ marginTop: spacing.md }}
             />
           </Card>
 
@@ -82,7 +79,7 @@ export default function LandingPage() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: 24,
+              gap: spacing.lg,
             }}
           >
             {/* Benefits */}
@@ -98,7 +95,7 @@ export default function LandingPage() {
               />
               <Paragraph
                 type="secondary"
-                style={{ marginTop: 16, fontSize: 12 }}
+                style={{ marginTop: spacing.md, fontSize: fontSize.sm }}
               >
                 {t("disclaimer")}
               </Paragraph>
@@ -126,7 +123,7 @@ export default function LandingPage() {
                 size="large"
                 icon={<RocketOutlined />}
                 style={{ minWidth: 200 }}
-                onClick={handleQuickRun}
+                onClick={quickRun}
               >
                 {t("cta.primary")}
               </Button>
@@ -137,7 +134,7 @@ export default function LandingPage() {
                 <Button
                   type="link"
                   icon={<EditOutlined />}
-                  onClick={handleCustomize}
+                  onClick={() => navigate("/customize")}
                 >
                   {t("cta.secondary")}
                 </Button>

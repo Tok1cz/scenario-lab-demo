@@ -21,7 +21,7 @@ export default function RadioOptionCard({
     <Card
       onClick={onClick}
       className={`${styles.optionCard} ${selected ? styles.selected : ""}`}
-      bodyStyle={{ padding: spacing.md }}
+      styles={{ body: { padding: spacing.md } }}
       hoverable
     >
       <Text

@@ -16,5 +16,10 @@
     "safe": "Sichere Einstellung",
     "risky": "Riskante Einstellung",
     "dangerous": "Gefährliche Einstellung"
+  },
+  "loading": {
+    "title": "Simulation wird ausgeführt...",
+    "subtitle": "Belastungstest der Negativszenarien für Ihre Einstellungsentscheidung",
+    "hint": "Dies dauert einige Sekunden"
   }
 }

@@ -6,13 +6,15 @@ import {
 import type { JSX } from "react";
 
 export interface StatusConfig {
-  title: string;
+  titleKey: string;
   color: string;
   bgColor: string;
   borderColor: string;
   icon: JSX.Element;
-  description: string;
+  descriptionKey: string;
 }
+
+const ICON_SIZE = 24;
 
 export function getStatusConfig(
   status: string | null | undefined,
@@ -20,34 +22,31 @@ export function getStatusConfig(
   switch (status) {
     case "safe":
       return {
-        title: "Safe Hire",
+        titleKey: "status.safe.title",
         color: "#52c41a",
         bgColor: "#f6ffed",
         borderColor: "#b7eb8f",
-        icon: <CheckCircleOutlined style={{ fontSize: 24 }} />,
-        description:
-          "Tested downside scenarios stay outside layoff and payroll breach thresholds.",
+        icon: <CheckCircleOutlined style={{ fontSize: ICON_SIZE }} />,
+        descriptionKey: "status.safe.description",
       };
     case "dangerous":
       return {
-        title: "Dangerous Hire",
+        titleKey: "status.dangerous.title",
         color: "#ff4d4f",
         bgColor: "#fff1f0",
         borderColor: "#ffa39e",
-        icon: <CloseCircleOutlined style={{ fontSize: 24 }} />,
-        description:
-          "Risk of cash breach under realistic downside. High caution advised.",
+        icon: <CloseCircleOutlined style={{ fontSize: ICON_SIZE }} />,
+        descriptionKey: "status.dangerous.description",
       };
     case "risky":
     default:
       return {
-        title: "Risky Hire",
+        titleKey: "status.risky.title",
         color: "#faad14",
         bgColor: "#fffbe6",
         borderColor: "#ffe58f",
-        icon: <WarningOutlined style={{ fontSize: 24 }} />,
-        description:
-          "A moderate downside pushes you into the layoff zone within a few months.",
+        icon: <WarningOutlined style={{ fontSize: ICON_SIZE }} />,
+        descriptionKey: "status.risky.description",
       };
   }
 }

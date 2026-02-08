@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { Layout } from "antd";
@@ -28,21 +28,21 @@ export default function CustomizerPage() {
     }
   }, [state.status, navigate]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (currentStep < 4) {
       nextStep();
     } else {
       startSimulation();
     }
-  };
+  }, [currentStep, nextStep, startSimulation]);
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     if (currentStep > 1) {
       prevStep();
     } else {
       navigate("/");
     }
-  };
+  }, [currentStep, prevStep, navigate]);
 
   const renderStep = () => {
     switch (currentStep) {
@@ -96,7 +96,7 @@ export default function CustomizerPage() {
   };
 
   return (
-    <Layout style={{ minHeight: "100vh", background: "#fafafa" }}>
+    <Layout style={{ minHeight: "100vh" }}>
       <Content
         style={{
           padding: `${spacing.xxl}px ${spacing.lg}px`,
@@ -112,7 +112,6 @@ export default function CustomizerPage() {
           nextLabel={
             currentStep === 4 ? t("navigation.submit") : t("navigation.next")
           }
-          showBack={true}
         />
       </Content>
     </Layout>

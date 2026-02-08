@@ -45,7 +45,7 @@ export default function StepHeader({
           <Progress
             percent={progress}
             strokeColor="#1f2937"
-            trailColor="#e5e7eb"
+            railColor="#e5e7eb"
             showInfo={false}
             style={{ flex: 1 }}
           />

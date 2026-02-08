@@ -1,4 +1,16 @@
 /* Failure Ladder */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xxl);
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
 .failureLadder {
   display: flex;
   flex-direction: column;

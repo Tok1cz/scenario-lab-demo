@@ -16,5 +16,10 @@
     "safe": "Safe Hire",
     "risky": "Risky Hire",
     "dangerous": "Dangerous Hire"
+  },
+  "loading": {
+    "title": "Running simulation...",
+    "subtitle": "Stress-testing downside scenarios for your hiring decision",
+    "hint": "This takes a few seconds"
   }
 }

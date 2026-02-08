@@ -26,13 +26,7 @@ export function FailureLadder({
   const currentIndex = stages.findIndex((s) => s.key === currentStageKey);
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: spacing.xxl,
-      }}
-    >
+    <div className={styles.container}>
       {/* Left: Ladder stages */}
       <div className={styles.failureLadder}>
         {stages.map((stage, index) => (

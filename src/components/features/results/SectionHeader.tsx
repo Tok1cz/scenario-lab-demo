@@ -1,5 +1,5 @@
 import { Typography } from "antd";
-import { fontSize } from "../../../lib/theme/designTokens";
+import { fontSize, spacing } from "../../../lib/theme/designTokens";
 
 const { Text } = Typography;
 
@@ -14,7 +14,7 @@ export function SectionHeader({ children }: SectionHeaderProps) {
       style={{
         fontSize: fontSize.md,
         display: "block",
-        marginBottom: 8,
+        marginBottom: spacing.xs,
       }}
     >
       {children}
