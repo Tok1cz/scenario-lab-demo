@@ -1,4 +1,5 @@
 import type { components } from "../../api-schema/generated";
+import type { FormData } from "../../hooks/useSimulation";
 
 type HiringSimRequest = components["schemas"]["HiringSimRequest"];
 type HiringSimResponse = components["schemas"]["HiringSimResponse"];
@@ -6,17 +7,7 @@ type HiringSimResponse = components["schemas"]["HiringSimResponse"];
 /**
  * Maps the user-friendly form values to API request parameters.
  */
-export function mapFormToRequest(form: {
-  hireType: string;
-  cashBuffer: string;
-  teamSize: string;
-  utilization: string;
-  hireCost: string;
-  startTiming: string;
-  billability: string;
-  utilizationDownside: string;
-  paymentRisk: string;
-}): HiringSimRequest {
+export function mapFormToRequest(form: FormData): HiringSimRequest {
   const cashBufferMap: Record<string, number> = {
     under1: 0.5,
     "1-3": 2,

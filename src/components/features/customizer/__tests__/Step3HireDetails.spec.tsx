@@ -15,7 +15,7 @@ describe("Step3HireDetails", () => {
         onChangeBillability={vi.fn()}
       />
     );
-    expect(screen.getByText(/Step 3 of 4/)).toBeInTheDocument();
+    expect(screen.getByText("guidedIntake")).toBeInTheDocument();
   });
 
   it("renders all hire cost options", () => {

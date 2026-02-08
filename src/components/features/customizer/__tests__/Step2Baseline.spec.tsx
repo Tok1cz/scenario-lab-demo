@@ -15,7 +15,7 @@ describe("Step2Baseline", () => {
         onChangeUtilization={vi.fn()}
       />,
     );
-    expect(screen.getByText(/Step 2 of 4/)).toBeInTheDocument();
+    expect(screen.getByText("guidedIntake")).toBeInTheDocument();
   });
 
   it("renders all cash buffer options", () => {

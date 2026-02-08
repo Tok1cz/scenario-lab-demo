@@ -27,15 +27,17 @@ export default function StepSidebar({ title, items }: StepSidebarProps) {
       >
         {title}
       </Title>
-      <ul style={{ paddingLeft: spacing.md, margin: 0 }}>
-        {items.map((item, index) => (
-          <li key={index} style={{ marginBottom: spacing.xs }}>
-            <Text type="secondary" style={{ fontSize: fontSize.sm }}>
-              {item}
-            </Text>
-          </li>
-        ))}
-      </ul>
+      {items.length > 0 && (
+        <ul style={{ paddingLeft: spacing.md, margin: 0 }}>
+          {items.map((item) => (
+            <li key={item} style={{ marginBottom: spacing.xs }}>
+              <Text type="secondary" style={{ fontSize: fontSize.sm }}>
+                {item}
+              </Text>
+            </li>
+          ))}
+        </ul>
+      )}
     </Card>
   );
 }

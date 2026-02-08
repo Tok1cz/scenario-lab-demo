@@ -6,7 +6,7 @@ import Step1HireType from "../Step1HireType";
 describe("Step1HireType", () => {
   it("renders step header with correct step number", () => {
     render(<Step1HireType value="" onChange={vi.fn()} />);
-    expect(screen.getByText(/Step 1 of 4/)).toBeInTheDocument();
+    expect(screen.getByText("guidedIntake")).toBeInTheDocument();
   });
 
   it("renders all four hire type options", () => {

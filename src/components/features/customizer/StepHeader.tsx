@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Typography, Progress } from "antd";
 import { spacing, fontSize } from "../../../lib/theme/designTokens";
 
@@ -16,6 +17,7 @@ export default function StepHeader({
   title,
   subtitle,
 }: StepHeaderProps) {
+  const { t } = useTranslation("customizer");
   const progress = (currentStep / totalSteps) * 100;
 
   return (
@@ -28,7 +30,7 @@ export default function StepHeader({
           marginBottom: spacing.xs,
         }}
       >
-        Guided Intake - Step {currentStep} of {totalSteps}
+        {t("guidedIntake", { current: currentStep, total: totalSteps })}
       </Text>
       <div style={{ marginBottom: spacing.md }}>
         <Text
@@ -39,7 +41,7 @@ export default function StepHeader({
             marginBottom: spacing.xxs,
           }}
         >
-          Progress
+          {t("progress")}
         </Text>
         <div style={{ display: "flex", alignItems: "center", gap: spacing.sm }}>
           <Progress

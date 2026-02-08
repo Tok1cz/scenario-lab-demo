@@ -12,7 +12,7 @@ describe("StepHeader", () => {
         subtitle="Subtitle"
       />
     );
-    expect(screen.getByText(/Guided Intake - Step 1 of 4/)).toBeInTheDocument();
+    expect(screen.getByText("guidedIntake")).toBeInTheDocument();
   });
 
   it("renders title", () => {
@@ -96,7 +96,7 @@ describe("StepHeader", () => {
         subtitle="Subtitle"
       />
     );
-    expect(screen.getByText("Progress")).toBeInTheDocument();
+    expect(screen.getByText("progress")).toBeInTheDocument();
   });
 
   it("handles different total step counts", () => {
@@ -108,7 +108,7 @@ describe("StepHeader", () => {
         subtitle="Subtitle"
       />
     );
-    expect(screen.getByText(/Step 2 of 5/)).toBeInTheDocument();
+    expect(screen.getByText("guidedIntake")).toBeInTheDocument();
 
     rerender(
       <StepHeader
@@ -118,6 +118,6 @@ describe("StepHeader", () => {
         subtitle="Subtitle"
       />
     );
-    expect(screen.getByText(/Step 3 of 6/)).toBeInTheDocument();
+    expect(screen.getByText("guidedIntake")).toBeInTheDocument();
   });
 });
