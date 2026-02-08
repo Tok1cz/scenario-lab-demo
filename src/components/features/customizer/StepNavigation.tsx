@@ -1,4 +1,5 @@
 import { Button } from "antd";
+import { useTranslation } from "react-i18next";
 import { spacing } from "../../../lib/theme/designTokens";
 
 interface StepNavigationProps {
@@ -12,10 +13,12 @@ interface StepNavigationProps {
 export default function StepNavigation({
   onBack,
   onNext,
-  nextLabel = "Next",
+  nextLabel,
   nextDisabled = false,
   showBack = true,
 }: StepNavigationProps) {
+  const { t } = useTranslation("common");
+
   return (
     <div
       style={{
@@ -26,7 +29,7 @@ export default function StepNavigation({
     >
       {showBack ? (
         <Button size="large" onClick={onBack}>
-          Back
+          {t("buttons.back")}
         </Button>
       ) : (
         <div />
@@ -42,7 +45,7 @@ export default function StepNavigation({
           minWidth: 200,
         }}
       >
-        {nextLabel}
+        {nextLabel ?? t("buttons.next")}
       </Button>
     </div>
   );
