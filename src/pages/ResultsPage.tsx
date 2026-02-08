@@ -115,10 +115,17 @@ export default function ResultsPage() {
     },
   ];
 
+  let statusDescriptionParams: { months?: number } = {};
+  if (data.status === "risky" && data.earliest_event?.type === "layoff_zone") {
+    statusDescriptionParams = { months: data.earliest_event.month };
+  } else if (data.status === "dangerous") {
+    statusDescriptionParams = {
+      months: data.time_to_payroll_breach_months || 0,
+    };
+  }
+
   const statusDescription =
-    data.status === "risky" && data.earliest_event?.type === "layoff_zone"
-      ? t("status.risky.description", { months: data.earliest_event.month })
-      : t(statusConfig.descriptionKey);
+    t(statusConfig.descriptionKey, statusDescriptionParams) ?? "";
 
   const timelineTitle = data.earliest_event
     ? t("timeline.earliestEvent", {
