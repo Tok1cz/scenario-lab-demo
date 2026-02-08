@@ -48,12 +48,6 @@
     }
   ],
   "files": {
-    "includes": [
-      "src",
-      "eslint.config.js",
-      "vitest.unit.config.ts",
-      "vitest.integration.config.ts",
-      "vite.config.ts"
-    ]
+    "includes": ["src", "eslint.config.js", "vitest.unit.config.ts", "vitest.integration.config.ts", "vite.config.ts"]
   }
 }
