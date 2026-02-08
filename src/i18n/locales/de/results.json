@@ -28,7 +28,17 @@
     "layoffZone": "Zeit bis zur Entlassungszone",
     "payrollBreach": "Zeit bis zum Gehaltsengpass",
     "noEvents": "Keine Risikoereignisse innerhalb von {{months}} Monaten (unter getestetem Rückgang)",
-    "notReached": "nicht innerhalb des Horizonts erreicht"
+    "notReached": "nicht innerhalb des Horizonts erreicht",
+    "layoffZoneEvent": "Entlassungszone",
+    "payrollBreachEvent": "Gehaltsengpass",
+    "monthsValue": "{{months}} Monate",
+    "monthsPlus": "6+ Monate",
+    "pinsNote": "Hinweis: Markierungen zeigen Schwellenüberschreitungen unter getestetem Rückgang",
+    "noCrossings": "Keine Schwellenüberschreitungen innerhalb des Horizonts",
+    "stressTestNote": "Hinweis: Dies ist ein Belastungstest über einen 6-Monats-Horizont - keine Punktprognose.",
+    "payrollSubtitle": "- Liquidität < 1 Monat Gehalt",
+    "layoffSubtitle": "- Laufzeit < 3 Monate ODER Bank > 25% für 2 Monate",
+    "layoffNotReached": "- nicht innerhalb des Horizonts erreicht"
   },
 
   "failureLadder": {
@@ -41,8 +51,11 @@
       "breach": "Gehaltsengpass (Liquidität < 1 Monat Gehalt)"
     },
     "whatBreaksFirst": "Was zuerst bricht",
+    "whatBreaksFirstExplanation": "Auslastungsschwäche erzeugt eine Bank, dann Liquiditätsdruck. Entlassungen erscheinen vor der Insolvenz.",
     "breakpoints": "Schwellenwerte",
-    "suggestedAction": "Empfohlene Maßnahme"
+    "breakpointsExplanation": "Unter ~70% Auslastung für 2 Monate ODER eine 30-Tage-Verzögerung vom Hauptkunden löst die Entlassungszone aus.",
+    "suggestedAction": "Empfohlene Maßnahme",
+    "defaultAction": "Fortfahren. Behalten Sie Auslastung und Zahlungsdisziplin im Auge, aber keine unmittelbaren Einschränkungen erkennbar."
   },
 
   "zones": {
@@ -52,7 +65,14 @@
 
   "actions": {
     "editAnswers": "Antworten bearbeiten",
-    "runAgain": "Belastungstest durchführen"
+    "runAgain": "Belastungstest durchführen",
+    "startOver": "Neu starten",
+    "backToHome": "Zurück zur Startseite",
+    "tryAgain": "Erneut versuchen"
+  },
+
+  "error": {
+    "title": "Simulation fehlgeschlagen"
   },
 
   "disclaimer": "Dies ist ein ungefähres Modell für Entscheidungsrobustheit. Es bietet keine Finanzberatung oder präzise Prognosen.",

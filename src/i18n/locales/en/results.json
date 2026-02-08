@@ -28,7 +28,17 @@
     "layoffZone": "Time to layoff zone",
     "payrollBreach": "Time to payroll breach",
     "noEvents": "No risk events within {{months}} months (under tested downside)",
-    "notReached": "not reached within horizon"
+    "notReached": "not reached within horizon",
+    "layoffZoneEvent": "Layoff zone",
+    "payrollBreachEvent": "Payroll breach",
+    "monthsValue": "{{months}} months",
+    "monthsPlus": "6+ months",
+    "pinsNote": "Note: Pins mark threshold crossings under tested downside",
+    "noCrossings": "No threshold crossings within horizon",
+    "stressTestNote": "Note: This is a stress test outcome over a 6-month horizon - not a point forecast.",
+    "payrollSubtitle": "- cash < 1 month payroll",
+    "layoffSubtitle": "- runway < 3 months OR bench > 25% for 2 months",
+    "layoffNotReached": "- not reached within horizon"
   },
 
   "failureLadder": {
@@ -41,8 +51,11 @@
       "breach": "Payroll breach (cash < 1 month payroll)"
     },
     "whatBreaksFirst": "What breaks first",
+    "whatBreaksFirstExplanation": "Utilization softness creates a bench, then cash pressure. Layoffs appear before insolvency.",
     "breakpoints": "Breakpoints",
-    "suggestedAction": "Suggested action"
+    "breakpointsExplanation": "Below ~70% utilization for 2 months OR a 30-day delay from the top client triggers the layoff zone.",
+    "suggestedAction": "Suggested action",
+    "defaultAction": "Proceed. Keep an eye on utilization and payment discipline, but no immediate constraints appear."
   },
 
   "zones": {
@@ -52,7 +65,14 @@
 
   "actions": {
     "editAnswers": "Edit answers",
-    "runAgain": "Run stress test"
+    "runAgain": "Run stress test",
+    "startOver": "Start Over",
+    "backToHome": "Back to Home",
+    "tryAgain": "Try Again"
+  },
+
+  "error": {
+    "title": "Simulation Failed"
   },
 
   "disclaimer": "This is an approximate model designed for decision robustness. It does not provide financial advice or precise forecasts.",
