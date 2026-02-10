@@ -148,23 +148,14 @@ function generateMockResponse(request: HiringSimRequest): HiringSimResponse {
   };
 }
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "";
-
 /**
  * Calls the simulation API. Falls back to mock if the API is unavailable.
  */
 export async function runSimulation(
   request: HiringSimRequest,
 ): Promise<HiringSimResponse> {
-  // If no API base is configured, go straight to mock
-  if (!API_BASE) {
-    // Simulate network delay for realistic UX
-    await new Promise((r) => setTimeout(r, 2000));
-    return generateMockResponse(request);
-  }
-
   try {
-    const res = await fetch(`${API_BASE}/api/v1/simulate/hiring`, {
+    const res = await fetch(`/api/v1/simulate/hiring`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(request),
