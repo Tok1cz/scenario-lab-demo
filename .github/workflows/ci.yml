@@ -24,6 +24,8 @@ jobs:
     needs: check
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -33,19 +35,20 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Set up SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+      - name: Package frontend build
+        run: tar -czf frontend-dist.tar.gz -C dist .
 
-      - name: Deploy static files
-        run: rsync -avz --delete dist/ ubuntu@${{ secrets.SERVER_IP }}:/var/www/scenario-lab/
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.sha }}
+          files: frontend-dist.tar.gz
+          make_latest: true
 
       - name: Trigger infra deploy
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.INFRA_DISPATCH_TOKEN }}
-          repository: Tok1cz/scenario-lab-infra
+          repository: tok1cz/scenario-lab-infra
           event-type: deploy-frontend
+          client-payload: '{"sha":"${{ github.sha }}", "repo":"tok1cz/scenario-lab-demo"}'
