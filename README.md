@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# scenario-lab-demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React SPA front-end for Scenario Lab. Lets users configure, run, and visualize hiring simulations.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19** · TypeScript · Vite
+- **Ant Design 6** (UI components) · **React Router 7**
+- **i18next** (internationalization)
+- **Biome** (lint & format) · **Vitest** (unit + integration tests)
 
-## React Compiler
+## Quick Start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
 
-## Expanding the ESLint configuration
+# Dev server (proxies /api → localhost:8000)
+npm run dev
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Production build
+npm run build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Script                       | Description                     |
+| ---------------------------- | ------------------------------- |
+| `npm run dev`                | Vite dev server with HMR        |
+| `npm run build`              | TypeScript compile + Vite build |
+| `npm run lint`               | Biome lint                      |
+| `npm run format`             | Biome format (write)            |
+| `npm run test`               | Run unit + integration tests    |
+| `npm run test:unit`          | Unit tests only                 |
+| `npm run test:integration`   | Integration tests only          |
+| `npm run generate:api:types` | Generate TS types from OpenAPI  |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Pages
+
+| Route          | Page             |
+| -------------- | ---------------- |
+| `/`            | Landing page     |
+| `/customize/*` | Simulation setup |
+| `/simulate`    | Loading / run    |
+| `/results`     | Results view     |
+
+## CI/CD (GitHub Actions)
+
+The [CI workflow](.github/workflows/ci.yml) runs on every push / PR to `main`:
+
+1. **check** – format check → lint → unit tests → integration tests
+2. **build-deploy** (main only) – builds, packages `dist/` as a tarball, creates a GitHub Release, then triggers deployment via `scenario-lab-infra`
+
+### Required Secrets
+
+| Secret                 | Purpose                                                         |
+| ---------------------- | --------------------------------------------------------------- |
+| `GITHUB_TOKEN`         | Auto-provided – used to create releases                         |
+| `INFRA_DISPATCH_TOKEN` | PAT with `repo` scope on `scenario-lab-infra` to trigger deploy |
