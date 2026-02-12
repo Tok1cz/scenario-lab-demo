@@ -28,7 +28,7 @@ export function RiskStatusCard({ config, description }: RiskStatusCardProps) {
           margin: 0,
           color: config.color,
           fontStyle: "italic",
-          fontSize: fontSize.display2,
+          fontSize: "clamp(36px, 8vw, 56px)",
         }}
       >
         {t(config.titleKey)}

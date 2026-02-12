@@ -68,10 +68,3 @@
   }
 }
 
-@media (max-width: 480px) {
-  :root {
-    --font-size-display1: 32px;
-    --font-size-display2: 36px;
-  }
-}
-

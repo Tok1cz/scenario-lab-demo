@@ -34,7 +34,7 @@ export function TimeToEventCard({
         style={{
           margin: `${spacing.xs}px 0`,
           fontStyle: "italic",
-          fontSize: fontSize.display1,
+          fontSize: "clamp(32px, 7vw, 48px)",
         }}
       >
         {months
