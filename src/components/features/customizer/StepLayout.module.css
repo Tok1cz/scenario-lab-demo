@@ -1,0 +1,26 @@
+.stepContent {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.stepMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.stepSidebar {
+  width: 350px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .stepContent {
+    flex-direction: column;
+  }
+
+  .stepSidebar {
+    width: 100%;
+  }
+}

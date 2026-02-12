@@ -122,7 +122,7 @@ export default function LandingPage() {
                 type="primary"
                 size="large"
                 icon={<RocketOutlined />}
-                style={{ minWidth: 200 }}
+                style={{ minWidth: 200, maxWidth: "100%" }}
                 onClick={quickRun}
               >
                 {t("cta.primary")}

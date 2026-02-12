@@ -4,6 +4,7 @@ import { spacing, fontSize } from "../../../lib/theme/designTokens";
 import StepHeader from "./StepHeader";
 import RadioOptionCard from "./RadioOptionCard";
 import StepSidebar from "./StepSidebar";
+import layoutStyles from "./StepLayout.module.css";
 
 const { Title, Text } = Typography;
 
@@ -38,15 +39,8 @@ export default function Step4Downside({
           {t("step4.question")}
         </Title>
 
-        <div style={{ display: "flex", gap: spacing.lg }}>
-          <div
-            style={{
-              flex: 1,
-              display: "flex",
-              flexDirection: "column",
-              gap: spacing.sm,
-            }}
-          >
+        <div className={layoutStyles.stepContent}>
+          <div className={layoutStyles.stepMain}>
             <RadioOptionCard
               title={t("step4.options.slight.title")}
               subtitle={t("step4.options.slight.subtitle")}
@@ -67,7 +61,7 @@ export default function Step4Downside({
             />
           </div>
 
-          <div style={{ width: 350 }}>
+          <div className={layoutStyles.stepSidebar}>
             <StepSidebar title={t("step4.sidebar.title")} items={[]} />
             <div style={{ marginTop: spacing.md }}>
               <Text

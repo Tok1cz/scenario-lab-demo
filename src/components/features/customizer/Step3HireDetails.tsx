@@ -4,6 +4,7 @@ import { spacing, fontSize } from "../../../lib/theme/designTokens";
 import StepHeader from "./StepHeader";
 import RadioOptionCard from "./RadioOptionCard";
 import StepSidebar from "./StepSidebar";
+import layoutStyles from "./StepLayout.module.css";
 
 const { Title, Text } = Typography;
 
@@ -42,15 +43,8 @@ export default function Step3HireDetails({
           {t("step3.question")}
         </Title>
 
-        <div style={{ display: "flex", gap: spacing.lg }}>
-          <div
-            style={{
-              flex: 1,
-              display: "flex",
-              flexDirection: "column",
-              gap: spacing.sm,
-            }}
-          >
+        <div className={layoutStyles.stepContent}>
+          <div className={layoutStyles.stepMain}>
             <RadioOptionCard
               title={t("step3.options.4-6")}
               selected={hireCost === "4-6"}
@@ -68,7 +62,7 @@ export default function Step3HireDetails({
             />
           </div>
 
-          <div style={{ width: 350 }}>
+          <div className={layoutStyles.stepSidebar}>
             <StepSidebar title={t("step3.sidebar.title")} items={[]} />
             <div style={{ marginTop: spacing.md }}>
               <Text
