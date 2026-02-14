@@ -39,7 +39,7 @@ export default function StepNavigation({
         size="large"
         onClick={onNext}
         disabled={nextDisabled}
-        style={{ minWidth: 200 }}
+        style={{ minWidth: 200, maxWidth: "100%" }}
       >
         {nextLabel ?? t("buttons.next")}
       </Button>

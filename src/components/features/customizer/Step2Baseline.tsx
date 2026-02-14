@@ -4,6 +4,7 @@ import { spacing, fontSize } from "../../../lib/theme/designTokens";
 import StepHeader from "./StepHeader";
 import RadioOptionCard from "./RadioOptionCard";
 import StepSidebar from "./StepSidebar";
+import layoutStyles from "./StepLayout.module.css";
 
 const { Title, Text } = Typography;
 
@@ -42,15 +43,8 @@ export default function Step2Baseline({
           {t("step2.question")}
         </Title>
 
-        <div style={{ display: "flex", gap: spacing.lg }}>
-          <div
-            style={{
-              flex: 1,
-              display: "flex",
-              flexDirection: "column",
-              gap: spacing.sm,
-            }}
-          >
+        <div className={layoutStyles.stepContent}>
+          <div className={layoutStyles.stepMain}>
             <RadioOptionCard
               title={t("step2.options.under1")}
               selected={cashBuffer === "under1"}
@@ -73,7 +67,7 @@ export default function Step2Baseline({
             />
           </div>
 
-          <div style={{ width: 350 }}>
+          <div className={layoutStyles.stepSidebar}>
             <StepSidebar title={t("step2.sidebar.title")} items={[]} />
             <div style={{ marginTop: spacing.md }}>
               <Text

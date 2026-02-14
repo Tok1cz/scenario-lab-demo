@@ -4,6 +4,7 @@ import { spacing, fontSize } from "../../../lib/theme/designTokens";
 import StepHeader from "./StepHeader";
 import RadioOptionCard from "./RadioOptionCard";
 import StepSidebar from "./StepSidebar";
+import layoutStyles from "./StepLayout.module.css";
 
 const { Title, Text } = Typography;
 
@@ -37,15 +38,8 @@ export default function Step1HireType({ value, onChange }: Step1HireTypeProps) {
           {t("step1.help")}
         </Text>
 
-        <div style={{ display: "flex", gap: spacing.lg }}>
-          <div
-            style={{
-              flex: 1,
-              display: "flex",
-              flexDirection: "column",
-              gap: spacing.sm,
-            }}
-          >
+        <div className={layoutStyles.stepContent}>
+          <div className={layoutStyles.stepMain}>
             <RadioOptionCard
               title={t("step1.options.first")}
               selected={value === "first"}
@@ -68,7 +62,7 @@ export default function Step1HireType({ value, onChange }: Step1HireTypeProps) {
             />
           </div>
 
-          <div style={{ width: 350 }}>
+          <div className={layoutStyles.stepSidebar}>
             <StepSidebar
               title={t("step1.sidebar.title")}
               items={[

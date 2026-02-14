@@ -57,7 +57,7 @@ export default function LoadingPage() {
             percent={100}
             status="active"
             showInfo={false}
-            style={{ width: 300 }}
+            style={{ width: 300, maxWidth: "100%" }}
           />
           <Text type="secondary" style={{ fontSize: fontSize.sm }}>
             {t("loading.hint")}
