@@ -82,8 +82,13 @@ body {
   }
 }
 
-/* Ensure proper text wrapping everywhere */
-* {
+/* Prevent text overflow in card titles and text elements */
+.ant-card-head-title,
+p,
+span,
+div,
+h1, h2, h3, h4, h5, h6,
+.ant-typography {
   overflow-wrap: break-word;
   word-wrap: break-word;
 }

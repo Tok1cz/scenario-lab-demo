@@ -55,14 +55,6 @@
   }
 }
 
-@media (max-width: 768px) {
-  :root {
-    --spacing-xxl: 32px;
-    --spacing-xl: 24px;
-    --spacing-lg: 16px;
-  }
-}
-
 .eventCardsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
