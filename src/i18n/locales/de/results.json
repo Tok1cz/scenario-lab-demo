@@ -37,7 +37,7 @@
     "noCrossings": "Keine Schwellenüberschreitungen innerhalb des Horizonts",
     "stressTestNote": "Hinweis: Dies ist ein Belastungstest über einen 6-Monats-Horizont - keine Punktprognose.",
     "payrollSubtitle": "- Liquidität < 1 Monat Gehalt",
-    "layoffSubtitle": "- Laufzeit < 3 Monate ODER Bank > 25% für 2 Monate",
+    "layoffSubtitle": "- Laufzeit < 3 Monate ODER Bench > 25% für 2 Monate",
     "layoffNotReached": "- nicht innerhalb des Horizonts erreicht"
   },
 
@@ -46,12 +46,12 @@
     "stages": {
       "healthy": "Gesunde Auslastung",
       "drops": "Auslastung sinkt",
-      "bench": "Bank baut sich auf (> 25% für 2 Monate)",
+      "bench": "Bench baut sich auf (> 25% für 2 Monate)",
       "layoff": "Erzwungene Entlassungszone (Laufzeit unter 3 Monaten)",
       "breach": "Gehaltsengpass (Liquidität < 1 Monat Gehalt)"
     },
     "whatBreaksFirst": "Was zuerst bricht",
-    "whatBreaksFirstExplanation": "Auslastungsschwäche erzeugt eine Bank, dann Liquiditätsdruck. Entlassungen erscheinen vor der Insolvenz.",
+    "whatBreaksFirstExplanation": "Auslastungsschwäche erzeugt einen Bench, dann Liquiditätsdruck. Entlassungen erscheinen vor der Insolvenz.",
     "breakpoints": "Schwellenwerte",
     "breakpointsExplanation": "Unter ~70% Auslastung für 2 Monate ODER eine 30-Tage-Verzögerung vom Hauptkunden löst die Entlassungszone aus.",
     "suggestedAction": "Empfohlene Maßnahme",
@@ -60,7 +60,7 @@
 
   "zones": {
     "dangerous": "Gefährlich = Liquidität unter 1 Monat Gehalt.",
-    "risky": "Riskant = tritt in Entlassungszone ein (Laufzeit unter 3 Monaten ODER Bank > 25% für 2 Monate)."
+    "risky": "Riskant = tritt in Entlassungszone ein (Laufzeit unter 3 Monaten ODER Bench > 25% für 2 Monate)."
   },
 
   "actions": {
