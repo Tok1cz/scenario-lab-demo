@@ -96,7 +96,7 @@ export default function CustomizerPage() {
   };
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout style={{ minHeight: "100vh", background: "transparent" }}>
       <Content
         style={{
           padding: `${spacing.xxl}px ${spacing.lg}px`,

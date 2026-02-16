@@ -1,0 +1,31 @@
+/* StepNavigation Mobile Optimizations */
+
+.navigationContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-xxl);
+  gap: var(--spacing-md);
+}
+
+.backButton {
+  min-width: 100px;
+}
+
+.nextButton {
+  min-width: 200px;
+  max-width: 100%;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .navigationContainer {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .backButton,
+  .nextButton {
+    width: 100%;
+    min-width: unset;
+  }
+}

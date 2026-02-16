@@ -35,7 +35,7 @@ export default function ResultsPage() {
 
   if (state.status === "error") {
     return (
-      <Layout style={{ minHeight: "100vh" }}>
+      <Layout style={{ minHeight: "100vh", background: "transparent" }}>
         <Content
           style={{
             display: "flex",
@@ -142,7 +142,7 @@ export default function ResultsPage() {
     : t("timeline.layoffNotReached");
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout style={{ minHeight: "100vh", background: "transparent" }}>
       <Content
         style={{
           padding: `${spacing.xxl}px ${spacing.lg}px`,

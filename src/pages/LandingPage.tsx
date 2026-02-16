@@ -5,6 +5,7 @@ import { Layout, Typography, Space, Card, Button, List } from "antd";
 import { RocketOutlined, EditOutlined } from "@ant-design/icons";
 import { spacing, fontSize } from "../lib/theme/designTokens";
 import { useSimulation } from "../hooks/useSimulation";
+import styles from "./LandingPage.module.css";
 
 const { Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
@@ -40,19 +41,20 @@ export default function LandingPage() {
   ];
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout style={{ minHeight: "100vh", background: "transparent" }}>
       <Content
         style={{
           padding: `${spacing.xxl}px ${spacing.lg}px`,
           maxWidth: 1200,
           margin: "0 auto",
+          width: "100%",
         }}
       >
         <Space direction="vertical" size="large" style={{ width: "100%" }}>
           {/* Hero Section */}
-          <div style={{ textAlign: "center", marginBottom: spacing.xl }}>
-            <Title level={1}>{t("hero.title")}</Title>
-            <Paragraph style={{ fontSize: fontSize.xl, color: "#6b7280" }}>
+          <div className={styles.heroSection}>
+            <Title level={1} className={styles.heroTitle}>{t("hero.title")}</Title>
+            <Paragraph className={styles.heroSubtitle}>
               {t("hero.subtitle")}
             </Paragraph>
           </div>
@@ -75,13 +77,7 @@ export default function LandingPage() {
           </Card>
 
           {/* Two Column Section */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: spacing.lg,
-            }}
-          >
+          <div className={styles.cardsGrid}>
             {/* Benefits */}
             <Card title={t("benefits.title")}>
               <List
@@ -116,13 +112,13 @@ export default function LandingPage() {
           </div>
 
           {/* CTA Section */}
-          <Card style={{ textAlign: "center", background: "#f0f9ff" }}>
+          <Card className={styles.ctaCard}>
             <Space direction="vertical" size="middle" style={{ width: "100%" }}>
               <Button
                 type="primary"
                 size="large"
                 icon={<RocketOutlined />}
-                style={{ minWidth: 200, maxWidth: "100%" }}
+                className={styles.ctaButton}
                 onClick={quickRun}
               >
                 {t("cta.primary")}
