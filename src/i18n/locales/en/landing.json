@@ -23,9 +23,9 @@
     "breakpoints": "Shows breakpoints, not just numbers"
   },
   "cta": {
-    "primary": "Run hiring stress test",
-    "secondary": "Adjust assumptions",
-    "customize": "Want to customize assumptions first?"
+    "primary": "Customize assumptions",
+    "secondary": "Run with defaults",
+    "customize": "Prefer a quick run with defaults?"
   },
   "disclaimer": "Assumptions are intentionally conservative to avoid false confidence. You can refine them anytime."
 }

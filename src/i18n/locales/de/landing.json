@@ -23,9 +23,9 @@
     "breakpoints": "Zeigt Schwellenwerte, nicht nur Zahlen"
   },
   "cta": {
-    "primary": "Belastungstest durchführen",
-    "secondary": "Annahmen anpassen",
-    "customize": "Möchten Sie die Annahmen zuerst anpassen?"
+    "primary": "Annahmen anpassen",
+    "secondary": "Mit Standardwerten starten",
+    "customize": "Lieber ein schneller Lauf mit Standardwerten?"
   },
   "disclaimer": "Annahmen sind bewusst konservativ, um falsches Vertrauen zu vermeiden. Sie können sie jederzeit verfeinern."
 }
