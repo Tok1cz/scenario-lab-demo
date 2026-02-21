@@ -53,7 +53,9 @@ export default function LandingPage() {
         <Space direction="vertical" size="large" style={{ width: "100%" }}>
           {/* Hero Section */}
           <div className={styles.heroSection}>
-            <Title level={1} className={styles.heroTitle}>{t("hero.title")}</Title>
+            <Title level={1} className={styles.heroTitle}>
+              {t("hero.title")}
+            </Title>
             <Paragraph className={styles.heroSubtitle}>
               {t("hero.subtitle")}
             </Paragraph>
@@ -117,9 +119,9 @@ export default function LandingPage() {
               <Button
                 type="primary"
                 size="large"
-                icon={<RocketOutlined />}
+                icon={<EditOutlined />}
                 className={styles.ctaButton}
-                onClick={quickRun}
+                onClick={() => navigate("/customize")}
               >
                 {t("cta.primary")}
               </Button>
@@ -129,8 +131,8 @@ export default function LandingPage() {
                 <br />
                 <Button
                   type="link"
-                  icon={<EditOutlined />}
-                  onClick={() => navigate("/customize")}
+                  icon={<RocketOutlined />}
+                  onClick={quickRun}
                 >
                   {t("cta.secondary")}
                 </Button>

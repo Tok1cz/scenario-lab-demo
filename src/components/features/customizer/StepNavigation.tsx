@@ -1,6 +1,5 @@
 import { Button } from "antd";
 import { useTranslation } from "react-i18next";
-import { spacing } from "../../../lib/theme/designTokens";
 import styles from "./StepNavigation.module.css";
 
 interface StepNavigationProps {
